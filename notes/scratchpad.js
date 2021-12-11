@@ -74,7 +74,7 @@ let thing1 = prompt("Enter input here.") // Pop-up window with user input field.
 parseInt("input here") // Transforms input to a number.
 
 
-	// STRING METHODS
+	// STRING METHODS This is a test of live typing. Cool!
 	.charAt(0) // Focuses on an individual character.
 	.slice(beginIndex, endIndex) // Extracts a section of a string and returns it as a new string, without modifying the original string.
 
