@@ -679,6 +679,7 @@ document.querySelector("img").alt // Alternate text:
 window.getComputedStyle(h1).color; // Returns the color of your h1.
 window.getComputedStyle(h1).marginLeft; // Returns the margin left of your h1.
 
+
 // Change stuff:
 // Makes inline html, which works, but it's not great.
 const subheader = document.querySelector("#subheader")
