@@ -1,0 +1,33 @@
+body, button	{
+	font-family: 'Roboto Mono', monospace;
+}
+nav {
+	max-width: fit-content;
+	border-left: 2em;
+}
+
+nav div h3	{
+	margin-block-start: 1em;
+	margin-block-end: 0em;
+}
+
+div {
+	margin-top: 10px;
+	margin-bottom:10px;
+}
+
+ul {
+	list-style: none;
+	background-color: pink;
+	padding-left: 0px;
+	margin-block-start: 0em;
+}
+
+a {
+	text-decoration: none;
+	color: #0065bf;
+}
+
+a:hover {
+	text-decoration: underline;
+}
