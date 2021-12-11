@@ -1,8 +1,7 @@
 // https://rollem.rocks/
-
 let input
+let roll
 function rollDie() {
-	let roll = prompt("Enter die roll. (2d6, 3d4, etc...):");
 	let numDice = parseInt(roll.slice(0,roll.indexOf("d")));
 	const rollArray = []
 
@@ -20,11 +19,16 @@ function rollDie() {
 }
 
 while (input !== "quit") {
-	input = prompt("roll = Roll die\nclear = clear console\nquit = Quit app");
+	input = prompt("roll = Roll die\nclear = Clear console\nquit = Quit app");
 	if (input == "roll") {
+		roll = prompt("Enter die roll. (2d6, 3d4, etc...):");
 		rollDie();
 	} else if (input == "clear"){
 		console.clear();
 	}
 }
 console.log(`quit`)
+
+Strip spaces in a string.
+Look for a ; separating die rolls.
+Add each item between ; to an array.
