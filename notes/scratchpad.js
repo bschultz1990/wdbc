@@ -34,7 +34,7 @@ console.log(newword);
 `I counted ${3 + 4} sheep`; // I counted 7 sheep. Use back tick. Only use inside of strings.
 
 // TYPEOF
-typeof (operand) // returns a string indicating the type of the unevaluated operand. 
+typeof (operand) // returns a string indicating the type of the unevaluated operand.
 typeof (42) // "number"
 
 // MATH OBJECT
@@ -76,7 +76,7 @@ parseInt("input here") // Transforms input to a number.
 
 	// STRING METHODS
 	.charAt(0) // Focuses on an individual character.
-	.slice(beginIndex, endIndex) // Extracts a section of a string and returns it as a new string, without modifying the original string. 
+	.slice(beginIndex, endIndex) // Extracts a section of a string and returns it as a new string, without modifying the original string.
 
 // CONDITIONALS. IF STATEMENT.
 if (true) {
@@ -518,7 +518,7 @@ function rollDie(numSides = 6) {
 // Adds ELEMENTS of an array into another array.
 const nums = [1, 2, 3, 4, 5];
 const moreNums = [6, 7, 8, 9, 10];
-console.log(nums, moreNums); // 
+console.log(nums, moreNums); //
 // [ 1, 2, 3, 4, 5 ]
 // [ 6, 7, 8, 9, 10 ]
 
@@ -691,5 +691,3 @@ h1.classlist.add('someClass') 	// It's like pushing to an array.
 	.remove('someClass') 			// Remove someClass.
 	.contains('someClass') 			// Does the element contain someClass?
 	.toggle('someClass') 			// Toggle between someClass and someOtherClass.
-
-asdf
