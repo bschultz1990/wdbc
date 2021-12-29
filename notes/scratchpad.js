@@ -729,6 +729,8 @@ Element.insertAdjacentElement('position', element) // Insert after an element en
 Element.after(element) // Insert after an element.
 Element.before(element) // Insert before an element.
 
+// REMOVING ELEMENTS
+Element.remove(element) // Remove element.
 
 
 
@@ -767,6 +769,4 @@ Element.before(element) // Insert before an element.
 
 
 
-
-
-////////////////////////////////
+//
