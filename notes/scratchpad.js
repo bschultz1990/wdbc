@@ -731,6 +731,24 @@ Element.before(element) // Insert before an element.
 
 // REMOVING ELEMENTS
 Element.remove(element) // Remove element.
+// --------------------------------------------------------------
+//EVENTS!!
+// Running code when a user does something.
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+// --------------------------------------------------------------
+// addEventListener
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+const button = document.querySelector('#exampleElement')
+button.addEventListener('click', function() {
+	alert('Clicked')
+})
+
+//OR
+function clickMe() {
+	alert('Clicked');
+}
+
+button.addEventListener('click', clickMe);
 
 
 
