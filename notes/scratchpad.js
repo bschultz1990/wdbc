@@ -711,26 +711,26 @@ squareImage.parentElement
 
 
 // CREATING NEW ELEMENTS.
-Document.createelement('div')
-const newImg = Document.createelement('img') // Create image
+document.createelement('div')
+const newImg = document.createelement('img') // Create image
 newImg.src = 'http://placehold.it/' // Assign source
 
 document.body.appendChild(newImg) // Append image as the LAST child of body.
 
 newH3 = document.createElement('h3')
 newH3.innertext = 'NEW H3 HERE!!'
-document.body.apendChild(NewH3)
+document.body.apendChild(newH3)
 
 // APPENDING MULTIPLE THINGS AT A TIME.
 document.querySelector('p').append('naked text here.') // Append text as last child of the first paragraph element.
 document.querySelector('p').prepend('naked text here.') // Prepend text as first child of the first paragraph element.
 
-Element.insertAdjacentElement('position', element) // Insert after an element ends or before an element begins.
-Element.after(element) // Insert after an element.
-Element.before(element) // Insert before an element.
+element.insertAdjacentElement('position', element) // Insert after an element ends or before an element begins.
+element.after(element) // Insert after an element.
+element.before(element) // Insert before an element.
 
 // REMOVING ELEMENTS
-Element.remove(element) // Remove element.
+element.remove(element) // Remove element.
 // --------------------------------------------------------------
 //EVENTS!!
 // Running code when a user does something.
