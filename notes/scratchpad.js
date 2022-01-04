@@ -750,6 +750,49 @@ function clickMe() {
 
 button.addEventListener('click', clickMe);
 
+// Events and the keyword "this"
+// https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/22051280#overview
+
+// When you have it inside a callback that is invoked inside a function,
+// "This" will refer to the last event that occurred. (click, drag, buton, etc.)
+
+// KEYBOARD EVENTS AND EVENT OBJECTS
+const keyInput = document.querySelector('input'); // refers to a generic input element from HTML.
+input.addEventListener('keydown', function() {
+	console.log('KEY DOWN')
+})
+
+input.addEventListener('keydown', function(e) { // references the Event object.
+	console.log(e)
+})
+
+// e.key = end result. Output of this depends on the language the user is using.
+// e.code = physical location of the key
+
+input.addEventListener('keyup', function() {
+	console.log('KEY UP')
+})
+
+// FORM EVENTS AND PREVENT DEFAULT
+// Whatever a form action attribute is set to, our entire browser window
+// will go to whatever page the form was pointing to. (eg /formsubmit).
+
+// <form action="/formsubmit">
+// 	<input type="text">
+// 	<button>Submit</button>
+// </form>
+
+// What if I want to stay on this page?
+
+const form = document.querySelector('#yourForm');
+const input = document.querySelector('#yourFormInput'); // Stuff you type.
+const list = document.querySelector('#yourFormList')
+form.addeventListener('submit', function(e) {
+	e.preventDefault(); // Don't change the page. Woo!
+	console.log('submitted');
+	console.log(input.value); // Log the stuff you type.
+})
+
 
 
 
