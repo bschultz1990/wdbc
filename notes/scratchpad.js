@@ -712,7 +712,7 @@ squareImage.parentElement
 
 // CREATING NEW ELEMENTS.
 document.createelement('div')
-const newImg = document.createelement('img') // Create image
+const newImg = document.createElement('img') // Create image
 newImg.src = 'http://placehold.it/' // Assign source
 
 document.body.appendChild(newImg) // Append image as the LAST child of body.
@@ -792,6 +792,22 @@ form.addeventListener('submit', function(e) {
 	console.log('submitted');
 	console.log(input.value); // Log the stuff you type.
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
