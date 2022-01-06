@@ -694,6 +694,10 @@ h1.classlist.add('someClass') 	// It's like pushing to an array.
 	.toggle('someClass') 			// Toggle between someClass and someOtherClass.
 
 
+// CHANGE OR REMOVE IDS:
+element.id = "someID"
+element.id = ""
+
 // SIBLING SELECTORS
 .parentelement
 .children[0] // Index of the first child.
@@ -793,6 +797,9 @@ form.addeventListener('submit', function(e) {
 	console.log(input.value); // Log the stuff you type.
 })
 
+// Focus elements
+// Like a text field or a check box, etc...
+element.focus();
 
 
 
