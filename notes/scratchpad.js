@@ -709,7 +709,7 @@ element.id = ""
 .nextElementSibling
 .previousElementSibling
 
-Document.queryselector
+document.queryselector
 squareImage = document.querySelector('square')
 squareImage.parentElement
 
