@@ -801,6 +801,19 @@ form.addeventListener('submit', function(e) {
 // Like a text field or a check box, etc...
 element.focus();
 
+// INPUT AND CHANGE EVENTS
+element.addEventListener('change') // Fires ONCE when you blur (leave) an input.
+element.addEventListener('input') // Fires EVERY TIME you blur (leave) an input.
+
+anyelement.addEventListener('input', function(e){
+  h1.innerText = `Welcome, ${anyelement.value}`; // Update an h1 element as a live preview while you type.
+});
+
+
+
+
+
+
 
 
 
