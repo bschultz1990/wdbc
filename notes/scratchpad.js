@@ -809,6 +809,23 @@ anyelement.addEventListener('input', function(e){
   h1.innerText = `Welcome, ${anyelement.value}`; // Update an h1 element as a live preview while you type.
 });
 
+// EVENT BUBBLING
+// What happens when you trigger events that are nested inside other events?
+// All of them trigger in cascading succession (event bubbling).
+
+anyelement.addEventListener('input', function(e){
+  e.stopPropagation(); // <-- Here's how to prevent that
+});
+
+// EVENT DELEGATION
+// Adding an event listener to a parent object instead of the object itself.
+// Handy when you're creating elements dynamically and want to interact with them.
+
+const list = document.querySelectorAll("ul" function (e){
+	e.target.remove(); // <-- Event listener target holds what you clicked on in the parent element.
+})
+
+
 
 
 
