@@ -1,0 +1,33 @@
+:root {
+  --series-width: 100px;
+  --score-button-width: 50px;
+}
+
+.pinkborder {
+  border-style: solid;
+  border-color: pink;
+}
+
+#score-div {
+  width: 500px;
+}
+
+#logo {
+  width: 450px;
+}
+
+.series-box {
+  width: var(--series-width);
+}
+
+#button-row {
+  margin-top: 20px;
+}
+
+#series-counter {
+  width: var(--series-width);
+}
+
+.score-button {
+  width: var(--score-button-width);
+}

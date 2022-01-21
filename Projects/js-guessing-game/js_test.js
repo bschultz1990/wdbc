@@ -26,24 +26,3 @@ while(gameRunning === true) {
     ++ attempts;
 }
 }
-
-// while(guess !== targetNum) {
-//     if (guess.toLowerCase() === `q`) {
-//         console.log(`Game is quit`);
-//         gameRunning = false;
-//     }
-//     ++ attempts;
-//     else if (guess > targetNum){
-//         guess = prompt (`Too high! Guess again:`)
-//     } else if (guess < targetNum){
-//         guess = prompt (`Too low! Guess again:`)
-//     } else {
-//         guess = prompt (`I don't recognize that. Guess a number or press 'q' to quit:`);
-//     }
-// }
-
-// if (guess.toLowerCase === `q`) {
-//     console.log(`Game is quit.`);
-// }; else {
-//     console.log(`You got it! It took you ${attempts} guesses.`);
-// }
