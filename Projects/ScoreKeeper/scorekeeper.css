@@ -1,6 +1,6 @@
 :root {
   --series-width: 100px;
-  --score-button-width: 50px;
+  --scoreButton-width: 50px;
 }
 
 .pinkborder {
@@ -8,7 +8,7 @@
   border-color: pink;
 }
 
-#score-div {
+#scoreDiv {
   width: 500px;
 }
 
@@ -16,18 +16,26 @@
   width: 450px;
 }
 
-.series-box {
+.seriesBox {
   width: var(--series-width);
 }
 
-#button-row {
+#buttonRow {
   margin-top: 20px;
 }
 
-#series-counter {
+#gameCounter {
   width: var(--series-width);
 }
 
-.score-button {
-  width: var(--score-button-width);
+.scoreButton {
+  width: var(--scoreButton-width);
+}
+
+.winner {
+  color: green;
+}
+
+.loser {
+  color: red;
 }

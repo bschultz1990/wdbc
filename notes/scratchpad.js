@@ -688,10 +688,10 @@ subheader.style.color = "blue"
 
 // BETTER!
 // CLASS LISTS!!!
-h1.classlist.add('someClass') 	// It's like pushing to an array.
-	.remove('someClass') 			// Remove someClass.
-	.contains('someClass') 			// Does the element contain someClass?
-	.toggle('someClass') 			// Toggle between someClass and someOtherClass.
+h1.classList.add('someClass') 	// It's like pushing to an array.
+	element.classList.remove('someClass') 			// Remove someClass.
+	element.classList.contains('someClass') 			// Does the element contain someClass?
+	element.classList.toggle('someClass') 			// Toggle between someClass and someOtherClass.
 
 
 // CHANGE OR REMOVE IDS:
