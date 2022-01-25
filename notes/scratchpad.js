@@ -825,9 +825,14 @@ const list = document.querySelectorAll("ul" function (e){
 	e.target.remove(); // <-- Event listener target holds what you clicked on in the parent element.
 })
 
+// =================================================================
+// 												ASYNC JAVASCRIPT
+// =================================================================
 
-
-
+// THE CALL STACK
+// The last in, first out approach for evaluating logic, like a stack of books.
+// A tool JavaScript uses to keep place in our code.
+// The code pauses when it calls any function and waits until it's done before resuming.
 
 
 
