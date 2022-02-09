@@ -834,7 +834,24 @@ const list = document.querySelectorAll("ul" function (e){
 // A tool JavaScript uses to keep place in our code.
 // The code pauses when it calls any function and waits until it's done before resuming.
 
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+const randomWordAPI = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
+const promise = fetch(randomWordAPI).then(gotData).catch(gotErr);
 
+function gotData(data) {
+    console.log(data);
+}
+
+function gotErr(err) {
+  console.log(err);
+}
+
+// Can be condensed into...
+let randWord = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
+fetch(randWord)
+  .then(response => response.json())
+  .then(data) => console.log(data)
+  .catch(err) => console.log(err);
 
 
 
