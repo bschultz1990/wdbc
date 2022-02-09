@@ -834,9 +834,35 @@ const list = document.querySelectorAll("ul" function (e){
 // A tool JavaScript uses to keep place in our code.
 // The code pauses when it calls any function and waits until it's done before resuming.
 
+<<<<<<< HEAD
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 const randomWordAPI = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
 const promise = fetch(randomWordAPI).then(gotData).catch(gotErr);
+=======
+// Javascript hands off web API functions to the browser to handle.
+// It doesn't normally wait for a response before plowing ahead.
+
+// If you want to perform web API actions sequentially, NEST those web API
+// functions inside each other:
+
+searchMoviesAPI('moviesearch', () => {
+	saveToMyDB(movies, () =>
+	// If it works, run this.
+), () =>
+// If it doesn't work, run this.
+})
+
+// This is messy. There is a better way to do this - with Promises and
+// async JavaScript...
+
+// ========================================================
+// 										PROMISES, Part I
+// ========================================================
+// Objects that represent the eventual success or failure of an async. operation.
+
+
+
+>>>>>>> 02e1afefb74de7ab1c6940ca17ea0fe681dd668b
 
 function gotData(data) {
     console.log(data);
