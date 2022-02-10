@@ -854,9 +854,21 @@ fetch(randWord)
   .catch(err) => console.log(err);
 
 
+// --------------------------------
+// CREATING YOUR OWN PROMISES
+// --------------------------------
+const delayedColorChange = (color, delay) => {
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => {
+			document.body.style.backgroundColor = color;
+			resolve();
+		})
+	}, delay);
+}
 
-
-
+deyaledColorChange('red', 1000)
+.then(() => delayedColorChange('orange', 1000))
+.then(() => delayedColorChange('yellow', 1000))
 
 
 
