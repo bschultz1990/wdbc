@@ -458,7 +458,7 @@ const sciNames = birds.map(b => b.Sci);
 
 
 // setTimeout sets a timer which executes a function or specified piece of code once the timer expires.
-let timeoutID = setTimeout(function[, delay, arg1, arg2, ...]);
+let timeoutID = setTimeout(function (delay, arg1, arg2);
 
 // setInterval repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
 // This method returns an interval ID which uniquely identifies the interval, so you can remove it later by calling clearInterval().
