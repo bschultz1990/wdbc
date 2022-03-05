@@ -904,7 +904,15 @@ const login = (username, password) => {
 // AWAIT
 // Whenever an ASYNC function encounters the AWAIT keyword, it will pause execution of the function
 // and waits for a resolution or a failure.
+// You can only await functions that return promises.
 
+async function rainbow () {
+	await delayedColorChange('red', delay)
+	await delayedColorChange('orange', delay)
+}
+
+// HANDLING ERRORS IN ASYNC FUNCTIONS
+// USE TRY AND CATCH
 
 
 
