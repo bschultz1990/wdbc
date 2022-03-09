@@ -870,7 +870,11 @@ deyaledColorChange('red', 1000)
 .then(() => delayedColorChange('orange', 1000))
 .then(() => delayedColorChange('yellow', 1000))
 
+// --------------------------------
+// ASYNC AND AWAIT
+// --------------------------------
 
+<<<<<<< HEAD
 // --------------------------------
 // AJAX AND APIS
 // --------------------------------
@@ -893,9 +897,51 @@ deyaledColorChange('red', 1000)
 // Transforms a JSON string into JSON.
 JSON.parse(text)
 JSON.parse(text, reviver_function) // Revivers are user-defined functions that format data before parsing into JSON.
+=======
+async function hello() { // Automatically returns a promise.... :)
+>>>>>>> 78a69f812ddfe17b321150e1643e857cd170c38b
 
+}
 
+<<<<<<< HEAD
 JSON.stringify(value, [replacer, space]) // Transforms JSON into a JSON string.
+=======
+// OR
+
+const asyncFunction = async() => {
+	return "YO! RETURNING SUCCESS DAWG!"
+}
+
+// If our function returns a value, our function will be resolved with that value.
+// You can reject a promise by throwing an error in the middle of the async function:
+
+const asyncFunction = async() => {
+	return "YO! RETURNING A STRING! SUCCESS!"
+}
+
+const login = (username, password) => {
+	if (!username || !password) {
+		throw "Missing credentials!"
+	}
+	if (password==="password") {
+		return "Welcome!"
+	}
+	throw "Invalid password. Try again."
+}
+
+// AWAIT
+// Whenever an ASYNC function encounters the AWAIT keyword, it will pause execution of the function
+// and waits for a resolution or a failure.
+// You can only await functions that return promises.
+
+async function rainbow () {
+	await delayedColorChange('red', delay)
+	await delayedColorChange('orange', delay)
+}
+
+// HANDLING ERRORS IN ASYNC FUNCTIONS
+// USE TRY AND CATCH
+>>>>>>> 78a69f812ddfe17b321150e1643e857cd170c38b
 
 // USING POSTMAN or HOPPSCOTCH
 // https://hoppscotch.io/
