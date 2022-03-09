@@ -871,10 +871,43 @@ deyaledColorChange('red', 1000)
 .then(() => delayedColorChange('yellow', 1000))
 
 
+// --------------------------------
+// AJAX AND APIS
+// --------------------------------
+
+// HOW TO MAKE REQUESTS VIA JAVASCRIPT
+// AJAX (Asynchronous JavaScript And Xml)
+// Ways to make requests behind the scenes after the page is loaded.
+
+// WEB APIS (Application Programming Interface): Requesting JSON, not HTML pages.
+// Exposes certain endpoints that respond with bare-bones information for software to use.
+
+// JSON (JavaScript Object Notation)
+// A format for sending data.
+
+{
+"squadName": "Super Hero Squad",
+"homeTown" : "Metro City"
+}
+
+// Transforms a JSON string into JSON.
+JSON.parse(text)
+JSON.parse(text, reviver_function) // Revivers are user-defined functions that format data before parsing into JSON.
 
 
+JSON.stringify(value, [replacer, space]) // Transforms JSON into a JSON string.
 
+// USING POSTMAN or HOPPSCOTCH
+// https://hoppscotch.io/
+// Helps test API requests.
 
+// SWAPI.dev (Star Wars API)
+
+// HTTP VERBS: GET, POST, PUT... Different ways of making requests.
+
+// HTTP STATUS CODES:
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+// Codes that indicate whether a specific HTTP request has been successfully completed. You'll get a number.
 
 
 
