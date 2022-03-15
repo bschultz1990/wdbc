@@ -913,11 +913,37 @@ JSON.stringify(value, [replacer, space]) // Transforms JSON into a JSON string.
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 // Codes that indicate whether a specific HTTP request has been successfully completed. You'll get a number.
 
+// Informational responses (100–199)
+// Successful responses (200–299)
+// Redirection messages (300–399)
+// Client error responses (400–499)
+// Server error responses (500–599)
 
+// QUERY STRINGS
+// Example: https://duckduckgo.com/?q=fennec+fox&t=h_&ia=web
 
+// HTTP HEADERS
+// Pairs of information that go along with the request.
+// Other ways to format your requests to a specific format.
 
+// XHRs: The old ways...
 
+// FETCH API
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 
+fetch("https://swapi.dev/api/people/1/")
+.then (resolve => {
+    console.log("RESOLVED!", resolve)
+    return resolve.json()
+})
+.then (data => {console.log("JSON DONE", data)})
+.catch (error => {console.log("ERROR!", error)})
+
+const SWAPI = async() => {
+    const res = await fetch("https://swapi.dev/api/people/1")
+    const data = await res.json();
+    console.log(data)
+}
 
 
 
