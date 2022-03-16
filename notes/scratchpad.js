@@ -199,21 +199,25 @@ names.user2
 // ADDING STUFF TO AN OBJECT
 discordRanks["rank2"] = "Anything Else"
 
+// ITERATING OVER OBJECTS
+const robots = { bot1: "Jeffrey", bot2: "Billy", bot3: "Samwise", bot4: "Marshall" }
+
+for (let name in robots) {
+	console.log(robots[name])
+}
 
 // FOR LOOPS
 for (
-	// [initial expression];
-	// [condition];
-	// [increment expression]
-	// )
-
-	// for (let i = 0; i <=10; i++) {
-	// 	console.log(`${i}`)
-	// }
-
-	// for (let i = 0; i <=10; i++) {
-	// 	console.log(i)
-	// }
+[initial expression];
+[condition];
+[increment expression]
+)
+for (let i = 0; i <=10; i++) {
+	console.log(`${i}`)
+}
+for (let i = 0; i <=10; i++) {
+	console.log(i)
+}
 
 	// WHILE LOOPS
 	let i = 0;
@@ -234,13 +238,6 @@ for (let num of robots) {
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 for (let square of numbers) {
 	console.log(square)
-}
-
-// ITERATING OVER OBJECTS
-const robots = { bot1: "Jeffrey", bot2: "Billy", bot3: "Samwise", bot4: "Marshall" }
-
-for (let name in robots) {
-	console.log(robots[name])
 }
 
 // FUNCTIONS 101
