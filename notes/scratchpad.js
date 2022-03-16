@@ -170,6 +170,15 @@ shapes.splice(0, 1, "square");					// (start,deletecount,replacement)
 let scores = [42, 54, 64, 74, 100, 99];
 scores.sort();									// Uhhh... [100, 42, 54, 64, 74, 99]
 
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+numbers.filter((n) => n % 2 == 1); // Return all odd numbers.
+numbers.filter((n) => n % 2 == 0); // Return all even numbers.
+
+// Accepts an array of strings as an imput and returns an array of
+// those strings that are less than 10 characters long.
+function validUserNames(usernames) {
+    return usernames.filter((i) => i.length < 10);
+}
 
 // ARRAYS AND CONST
 // Const with arrays cares about the memory rerence, not the array contents.
@@ -218,6 +227,7 @@ for (let i = 0; i <=10; i++) {
 for (let i = 0; i <=10; i++) {
 	console.log(i)
 }
+
 
 	// WHILE LOOPS
 	let i = 0;
@@ -465,24 +475,11 @@ let timeoutID = setTimeout(function (delay, arg1, arg2);
 let intervalID = setInterval(func, [delay, arg1, arg2, ...]);
 
 
-// Filter method:
-// Creates a new array with all elements that pass the test implemented by the provided boolean function:
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-numbers.filter(n => n % 2 == 1); // Return all odd numbers.
-numbers.filter(n => n % 2 == 0); // Return all even numbers.
-
-// Accepts an array of strings as an imput and returns an array of
-// those strings that are less than 10 characters long.
-function validUserNames(usernames) {
-	return usernames.filter(i => i.length < 10);
-}
-
-
 // EVERY and SOME
 // Every:
 const exams = [10, 70, 90, 96, 100]
-exams.every(score => score >= 75);  // .every returns true in this case ONLY if ALL of the
-// elements in this array are greater than 75.
+exams.every(score => score >= 75);
+// True IF all scores are above 75
 
 
 // Some:
@@ -515,7 +512,7 @@ function rollDie(numSides = 6) {
 // Defaults to rolling 1d6 if you don't pass anything in.
 
 // SPREAD
-// Adds ELEMENTS of an array into another array.
+// Pass an array of values as arguments in a function.
 const nums = [1, 2, 3, 4, 5];
 const moreNums = [6, 7, 8, 9, 10];
 console.log(nums, moreNums); //
@@ -538,6 +535,7 @@ const allpets = [...cats, ...dogs, "Speedy"] // [ "Blue", "Scout", "Rocket", "Ni
 
 const string = "Hello"
 [...string] // [ "H", "e", "l", "l", "o" ]
+
 
 
 // SPREAD WITH OBJECTS
@@ -563,7 +561,8 @@ const newUser = {
 	isAdmin: false
 }
 
-console.log(newUser);	// { email: "blueman@gmail.com", username: "bschultz1990", password: "ASDFasdf3456", id: 2345, isAdmin: false }
+console.log(newUser);
+// { email: "blueman@gmail.com", username: "bschultz1990", password: "ASDFasdf3456", id: 2345, isAdmin: false }
 
 // The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
 // If `...`` is used as an ARGUMENT in a FUNCTION, it's a REST parameter.
@@ -638,6 +637,18 @@ birds.map(({ Name, Sci }) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // THE DOM! (DOCUMENT OBJECT MODEL)
 // A JavaScript representation of a webpage. OR
 // HTML and CSS go in, Javascript objects come out. YAAAY! FINALLY! :D
@@ -670,10 +681,6 @@ document.querySelector('a').innerHTML += '<i>I AM A LINK</i>' // Add, don't repl
 
 document.querySelector("img").src // Source url
 document.querySelector("img").alt // Alternate text:
-// CHANGING COLORS AND STYLES
-// Step 1: Define a class in your css with the stuff you want.
-// Step 2: Define another class with the stuff you want to change to.
-// Step 3: Use JS to change between classes. :)
 
 // Get computed style of stuff in the window object:
 window.getComputedStyle(h1).color; // Returns the color of your h1.

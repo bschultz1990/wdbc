@@ -417,6 +417,50 @@ let robots = function (bot1, bot2, bot3, bot4) {
 };
 ```
 
+### Arrow Functions
+
+Another way to write in-line functions.
+
+```js
+// Traditional Anonymous Function:
+function (a) {
+	return a + 100;
+}
+
+// Arrow Function Break Down:
+// 1. Remove the word "function" and place arrow between the argument and opening body bracket
+(a) => {
+	return a + 100;
+}
+
+// 2. Remove the body braces and word "return" -- the return is implied.
+(a) => a + 100;
+
+// 3. Remove the argument parentheses
+a => a + 100;
+
+
+// This:
+const sciNames = birds.map(function (b) {
+	return b.Sci;
+});
+
+// Can be written as:
+const sciNames = birds.map((b) => { return b.Sci });
+
+// Or as this, if you're returning ONE THING:
+const sciNames = birds.map(b => b.Sci);
+
+
+// setTimeout sets a timer which executes a function or specified piece of code once the timer expires.
+let timeoutID = setTimeout(function (delay, arg1, arg2);
+
+// setInterval repeatedly calls a function or executes a code snippet, with a fixed time delay between each call.
+// This method returns an interval ID which uniquely identifies the interval, so you can remove it later by calling clearInterval().
+let intervalID = setInterval(func, [delay, arg1, arg2, ...]);
+
+```
+
 ### Methods - Adding Functions as Properties in Objects
 
 ```js
@@ -491,4 +535,344 @@ const hen = {
         return "EGG";
     },
 };
+```
+
+## Try and Catch
+
+Tests errors and stops them before they spread.
+
+```js
+hello.toUpperCase(); // UNCAUGHT reference error!
+
+// Same function, just wrapped in a try/catch sequence.
+try {
+    hello.toUpperCase();
+} catch {
+    console.log("Errrrror.");
+}
+```
+
+## Array Callback Methods
+
+Function required to be passed into them
+
+```js
+.forEach, .map, .filter, .find, .reduce, .some, .every
+```
+
+### .forEach
+
+(Older version of FOR-OF loops.)
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+numbers.forEach(function (i)) {
+	if (i % 2) {
+		console.log(i) // print even numbers
+	}
+}
+```
+
+### .map
+
+Executes a function on each element of an array, returning an array of its own.
+
+```js
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // double every number, using MAP
+const doubles = numbers.map(function (num) {
+    return num * 2;
+});
+
+const fullNames = [
+    { first: "Albus", last: "Dumbledore" },
+    { first: "Harry", last: "Potter" },
+    { first: "Hermione", last: "Granger" },
+    { first: "Ron", last: "Weasley" },
+    { first: "Rubeus", last: "Hagrid" },
+    { first: "Minerva", last: "McGonagall" },
+    { first: "Severus", last: "Snape" },
+];
+const firstNames = fullNames.map(function (i) {
+    return i.first;
+});
+// Array(7) [ "Albus", "Harry", "Hermione", "Ron", "Rubeus", "Minerva", "Severus" ]
+```
+
+This is an array of objects:
+
+```js
+const birds = [
+    {
+        Name: "Peregrine Falcon",
+        Sci: "Falco Peregrinus",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Gyrfalcon",
+        Sci: "Falco Rusticolus",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Chestnut-Collared Swift",
+        Sci: "Streptoprocne rutila",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Burrowing Owl",
+        Sci: "Athene Cunicularia",
+        Status: "Least Concern",
+    },
+];
+
+function birdStats(birds) {
+    const sciNames = birds.map((b) => b.Sci);
+    console.log(sciNames);
+}
+
+birds.map(({ Name, Sci }) => {
+    return `Name: ${Name}. Scientific Name: ${Sci}.`;
+});
+// [ "Falco Peregrinus", "Falco Rusticolus", "Streptoprocne rutila", "Athene Cunicularia" ]
+```
+
+### Every
+
+Tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+
+```js
+const exams = [10, 70, 90, 96, 100];
+exams.every((score) => score >= 75);
+// True IF all scores are above 75
+```
+
+### Some
+
+Tests whether any element in an array passes the test implemented by the provided function. It returns a Boolean value.
+
+```js
+// Returns true if one or more returns true.
+const exams = [10, 70, 90, 96, 100];
+exams.some((score) => score >= 75);
+
+// This returns true if all numbers in the array numbers are even.
+function allEvens(numbers) {
+    return numbers.every((i) => i % 2 == 0);
+}
+```
+
+### Reduce
+
+Executes a user-supplied "reducer" callback function on each element in an array,
+passing in the return value from the calculation on the preceding element.
+
+```js
+let sumtotal = rollArray.reduce((total, i) => total + i);
+```
+
+## Newer JavaScript Functions
+
+### Default parameters.
+
+```js
+// Defaults to rolling 1d6 if you don't pass anything in.
+function rollDie(numSides = 6) {
+    return Math.floor(Math.random() * numSides) + 1;
+}
+```
+
+### Spread
+
+Pass an array of values as arguments into a function.
+
+```js
+const nums = [1, 2, 3, 4, 5];
+const moreNums = [6, 7, 8, 9, 10];
+console.log(nums, moreNums); //
+// [ 1, 2, 3, 4, 5 ]
+// [ 6, 7, 8, 9, 10 ]
+
+// WE CAN DO BETTER:
+const allNums = [...nums, ...moreNums]
+console.log(allNums); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+
+
+// Works for any iterable thing, like strings, arrays, or objects!
+console.log(`Hello`) // "Hello"
+console.log(...`Hello`) // "H e l l o"
+
+const cats = ['Blue', 'Scout', 'Rocket']
+const dogs = ['Nina', 'Pinta', 'Santa Maria']
+const allpets = [...cats, ...dogs, "Speedy"] // [ "Blue", "Scout", "Rocket", "Nina", "Pinta", "Santa Maria", "Speedy"]
+// YOU DON'T HAVE TO USE ARRAY.PUSH!! :)
+
+const string = "Hello"
+[...string] // [ "H", "e", "l", "l", "o" ]
+```
+
+Spread With Objects
+
+```js
+// You can spread properties from multiple objects into new objects!
+
+const feline = { Legs: 4, Vice: "High", Fetch_Ability: 2 };
+const canine = { Legs: 4, Vice: "Low", Fetch_Ability: 10 };
+
+const catDog = { ...feline, ...canine };
+// { Legs: 4, Vice: "Low", Fetch_Ability: 10 }
+// This overwrites the key/value pairs with the newest ones when they're the same with each object.
+
+const formData = {
+    email: "blueman@gmail.com",
+    username: "bschultz1990",
+    password: "ASDFasdf3456",
+};
+
+const newUser = {
+    ...formData,
+    id: 2345,
+    isAdmin: false,
+};
+
+console.log(newUser);
+// { email: "blueman@gmail.com", username: "bschultz1990", password: "ASDFasdf3456", id: 2345, isAdmin: false }
+```
+
+### Rest
+
+The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a way to represent variadic functions in JavaScript.
+
+If `...` is used as an ARGUMENT in a FUNCTION, it's a REST parameter.
+
+```js
+function sum(...theArgs) {
+    return theArgs.reduce((previous, current) => {
+        return previous + current;
+    });
+}
+```
+
+### Destructuring Arrays
+
+A short, clean syntax to unpack values from arrays or properties from objects into distinct variables.
+
+```js
+// OLD WAY
+const scores = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+const favColor = scores[0];
+const secondFavColor = scores[1];
+
+// THERE'S AN EASIER WAY:
+const colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet"];
+const [favColor, secondFavColor, ...otherColors] = colors;
+```
+
+### Destructuring Objects
+
+Order matters not. Judge me by my organization, do you?
+
+```js
+const boomingBlade = {
+    Title: "Booming Blade",
+    School: "Evocation",
+    Casting_Time: "1 action",
+    Range: "5 feet",
+    Components: "V,M",
+    Duration: "1 round",
+    Materials: "A weapon",
+};
+const { Casting_Time, Duration, Materials, Description } = boomingBlade;
+// Casting_Time "1 Action"
+
+// You can rename the variables you pull out, too!
+const { Casting_Time: castingTime } = boomingBlade; // Casting_Time "1 Action"
+```
+
+### Destructuring Parameters
+
+You can do this on the "way in" to a function.
+
+```js
+const birds = [
+    {
+        Name: "Peregrine Falcon",
+        Sci: "Falco Peregrinus",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Gyrfalcon",
+        Sci: "Falco Rusticolus",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Chestnut-Collared Swift",
+        Sci: "Streptoprocne rutila",
+        Status: "Least Concern",
+    },
+    {
+        Name: "Burrowing Owl",
+        Sci: "Athene Cunicularia",
+        Status: "Least Concern",
+    },
+];
+
+birds.map(({ Name, Sci }) => {
+    return `Name: ${Name}. Scientific Name: ${Sci}.`;
+}); // "Name: Peregrine Falcon. Scientific Name: Falco Peregrinus", etc...
+```
+
+## The DOM (**D**ocument **O**bject **M**odel)
+
+A JavaScript representation of a webpage. OR
+HTML and CSS go in, Javascript objects come out. YAAAY! FINALLY! :D
+
+Go to any webpage. Open Chrome dev tools and type this in to get a preview:
+
+```js
+console.dir(document);
+```
+
+### Selecting Object Elements
+
+```js
+document.getElementById("id"); // Only works on elements that have an id in html.
+document.getElementsByTagName("tagname"); // Returns an HTML collection (not an array) of elements by the tag name specified.
+document.getElementsByClassName("classname"); // Returns an HTML collection (not an array) of elements by the class name specified.
+
+// Query Selector! :) (Better than above.)
+document.querySelector("#banner"); // Returns the first match of a class, id, or element.
+document.querySelector('input[type = "checkbox"]'); // Returns the input type of checkbox.
+document.querySelectorAll(".done"); // Returns ALLLLLL matches of the .done class.
+```
+
+Another example:
+
+```js
+// Replace every link text with "I AM A LINK."
+const allLinks = document.querySelectorAll("a");
+for (const link of allLinks) {
+    link.innerText = "I AM A LINK";
+}
+```
+
+### Inner HTML
+
+Adds actual HTML elements and a text to your markup.
+
+```js
+document.querySelector("a").innerHTML = "<i>I AM A LINK</i>";
+document.querySelector("a").innerHTML += "<i>I AM A LINK</i>"; // Add, don't replace the text in an element.
+```
+
+Image Elements
+
+```js
+document.querySelector("img").src; // Source url
+document.querySelector("img").alt; // Alternate text:
+```
+
+Get the computed style of stuff in the window object:
+
+```js
+window.getComputedStyle(h1).color; // Returns the color of your h1.
+window.getComputedStyle(h1).marginLeft; // Returns the margin left of your h1.
 ```
