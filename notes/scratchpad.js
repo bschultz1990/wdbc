@@ -14,9 +14,12 @@
 "string".repeat() // constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
 "string".toUpperCase() // CAPITALIZE STRING
 "string".toLowerCase() // uncapitalize string
-"string".indexOf("character here") // Returns the index of your string number. Returns -1 if the thing isn't found.
-"stringstuff-otherstuff".split(separator, limit) // divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
-"string".replace() // returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.
+"string".indexOf("character here")
+// Returns the index of your string number. Returns -1 if the thing isn't found.
+"stringstuff-otherstuff".split(separator, limit)
+// divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+"string".replace()
+// returns a new string with some or all matches of a pattern replaced by a replacement. The pattern can be a string or a RegExp, and the replacement can be a string or a function to be called for each match.
 	.replace(regexp, newSubstr)
 	.replace(regexp, replacerFunction)
 
