@@ -14,31 +14,39 @@
 
 ### **Slice**
 
+Extracts a section of a string and returns a new string.
+
     "string".slice(start, end);
-    // Extracts a section of a string and returns a new string.
 
 ### **Repeat**
 
+Constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
     "string".repeat()
-    // constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
 
 ### **toUpperCase**
 
-    "string".toUpperCase() // CAPITALIZE STRING
+CAPITALIZE STRING
+
+    "string".toUpperCase()
 
 ### **toLowerCase**
 
-    "string".toLowerCase() // uncapitalize string
+Uncapitalize string
+
+    "string".toLowerCase()
 
 ### **indexOf**
 
+Returns the index of your string number. Returns -1 if the thing isn't found.
+
     "string".indexOf("character here")
-    // Returns the index of your string number. Returns -1 if the thing isn't found.
 
 ### **Split**
 
+Divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
+
     "stringstuff-otherstuff".split(separator, limit)
-    // divides a String into an ordered list of substrings, puts these substrings into an array, and returns the array.
 
 ### **Replace**
 
@@ -61,3 +69,33 @@ Example: remove all spaces in a string:
 
 `I counted ${3 + 4} sheep;` // I counted 7 sheep.
 Use back tick. Only use inside of strings.
+
+### TypeOf()
+
+Returns a string indicating the type of the unevaluated operand.
+
+    typeof (operand)
+    typeof (42) // "number"
+
+### Math Object
+
+    Math.PI // 3.1415926535
+    Math.round(4.9) // 5
+    Math.abs(-456) // 456
+    Math.pow(2, 5) // 32
+    Math.floor(3.9999) // 3. Removes decimal.
+    Math.random(); // Returns a random decimal number between 0 and 1.
+    Math.floor(Math.random() * 20) + 1 // Random whole number from 1 to 20.
+
+    let roll = `You rolled a ${die1} and a ${die2}. They sum to ${die1 + die2}`
+
+## Comparison Operators
+
+> Greater Than
+> < Less Than
+> = Greater than or equal to
+> <= Less than or equal to
+> == Equal to
+> != Not equal
+> === Strict equality. (Changes things to the same type, then compares them.)
+> !== Strict non-equality. (Checks for equality of value and type.)
