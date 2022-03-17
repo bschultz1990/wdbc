@@ -876,3 +876,293 @@ Get the computed style of stuff in the window object:
 window.getComputedStyle(h1).color; // Returns the color of your h1.
 window.getComputedStyle(h1).marginLeft; // Returns the margin left of your h1.
 ```
+
+## Changing Things Via JavaScript
+
+### Class Lists
+
+```js
+// Makes inline html, which works, but it's not great.
+const subheader = document.querySelector("#subheader");
+// subheader.style.color = "blue"
+subheader.style.color = "blue";
+
+// BETTER!
+// CLASS LISTS!!!
+h1.classList.add("someClass"); // It's like pushing to an array.
+element.classList.remove("someClass"); // Remove someClass.
+element.classList.contains("someClass"); // Does the element contain someClass?
+element.classList.toggle("someClass"); // Toggle between someClass and someOtherClass.
+```
+
+### Change/Remove IDs
+
+```js
+element.id = "someID";
+element.id = "";
+```
+
+### Next or Previous Sibling
+
+```js
+.nextElementSibling
+.previousElementSibling
+
+document.queryselector
+squareImage = document.querySelector('square')
+squareImage.parentElement
+```
+
+### Creating New Elements
+
+```js
+document.createelement("div");
+const newImg = document.createElement("img"); // Create image
+newImg.src = "http://placehold.it/"; // Assign source
+
+document.body.appendChild(newImg); // Append image as the LAST child of body.
+
+newH3 = document.createElement("h3");
+newH3.innertext = "NEW H3 HERE!!";
+document.body.apendChild(newH3);
+
+// APPENDING MULTIPLE THINGS AT A TIME.
+document.querySelector("p").append("naked text here."); // Append text as last child of the first paragraph element.
+document.querySelector("p").prepend("naked text here."); // Prepend text as first child of the first paragraph element.
+
+element.insertAdjacentElement("position", element); // Insert after an element ends or before an element begins.
+element.after(element); // Insert after an element.
+element.before(element); // Insert before an element.
+```
+
+### Removing Elements
+
+```js
+element.remove(element); // Remove element.
+```
+
+## Events
+
+Runs code when a user does something.
+
+[MDN: .addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+
+```js
+const button = document.querySelector("#exampleElement");
+button.addEventListener("click", function () {
+    alert("Clicked");
+});
+
+//OR
+function clickMe() {
+    alert("Clicked");
+}
+button.addEventListener("click", clickMe);
+```
+
+### Events and the Keyword, "This"
+
+When you have it inside a callback that is invoked inside a function, "This will refer to the last event that occurred (click, drag, button press, etc...).
+
+```js
+const keyInput = document.querySelector("input"); // refers to a generic input element from HTML.
+input.addEventListener("keydown", function () {
+    console.log("KEY DOWN");
+});
+
+input.addEventListener("keydown", function (e) {
+    // references the Event object.
+    console.log(e);
+});
+
+e.key; // The end result. Output of this depends on the language the user is using.
+e.code; // The physical location (index) of the key.
+
+input.addEventListener("keyup", function () {
+    console.log("KEY UP");
+});
+```
+
+### Form Events and "Prevent Default"
+
+Whatever a form action attribute is set to, our entire browser window will go to whatever page the form was pointing to. (eg /formsubmit).
+
+What if I want to stay on the page? Access the "event" variable and change the default behavior within your specific event.
+
+```js
+const form = document.querySelector("#yourForm");
+const input = document.querySelector("#yourFormInput"); // Stuff you type.
+const list = document.querySelector("#yourFormList");
+form.addeventListener("submit", function (e) {
+    e.preventDefault(); // Don't change the page. Woo!
+    console.log("submitted");
+    console.log(input.value); // Log the stuff you type.
+});
+```
+
+Focus elements like a text field, check box, etc...
+
+```js
+element.focus();
+```
+
+Input and Change Events:
+
+```js
+// INPUT AND CHANGE EVENTS
+element.addEventListener("change"); // Fires ONCE when you blur (leave) an input.
+element.addEventListener("input"); // Fires EVERY TIME you blur (leave) an input.
+
+anyelement.addEventListener("input", function (e) {
+    h1.innerText = `Welcome, ${anyelement.value}`; // Update an h1 element as a live preview while you type.
+});
+```
+
+#### **Event Bubbling**
+
+What happens when you trigger events that are nested inside other events? All of them trigger in cascading succession.
+
+```js
+anyelement.addEventListener("input", function (e) {
+    e.stopPropagation(); // <-- Here's how to prevent that
+});
+```
+
+#### **Event Delegation**
+
+Adding an event listener to a parent object instead of the object itself. Handy when you're creating elements dynamically and want to interact with them.
+
+```js
+const list = document.querySelectorAll("ul" function (e){
+	e.target.remove(); // <-- Event listener target holds what you clicked on in the parent element.
+})
+```
+
+# Async Javascript
+
+Ways to hand off events to the browser and keep our place in the code.
+
+## The Call Stack
+
+The last-in, first-out approach for evaluating logic, like a stack of books.
+A tool JavaScript uses to keep place in our code.
+The code pauses when it calls any function and waits until it's done before resuming.
+
+[MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+```js
+const randomWordAPI = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
+const promise = fetch(randomWordAPI).then(gotData).catch(gotErr);
+
+function gotData(data) {
+    console.log(data);
+}
+
+function gotErr(err) {
+  console.log(err);
+}
+
+// Can be condensed into...
+let randWord = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
+fetch(randWord){
+  .then(response => response.json())
+  .then(data) => console.log(data)
+  .catch(err) => console.log(err);
+}
+```
+
+## Creating Your Own Promises
+
+```js
+const delayedColorChange = (color, delay) => {
+    return new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            document.body.style.backgroundColor = color;
+            resolve();
+        });
+    }, delay);
+};
+
+deyaledColorChange("red", 1000)
+    .then(() => delayedColorChange("orange", 1000))
+    .then(() => delayedColorChange("yellow", 1000));
+```
+
+## AJAX and APIs
+
+Making requests via JavaScript
+
+-   **AJAX:** Asynchronous JavaScript and Xml
+-   **AJAJ:** Asynchronous JavaScript and JSON
+-   **Web APIs:** Web Application Programming Interface. Requesting JSON, not HTML pages. Exposes certain endpoints that respond with bare-bones information for software to use.
+-   **JSON:** A format for sending raw data. Superceded XML
+
+JSON Example:
+
+```json
+{
+    "squadName": "Super Hero Squad",
+    "homeTown": "Metro City"
+}
+```
+
+### JSON.parse
+
+Transforms a JSON string into JSON.
+
+```js
+JSON.parse(text)
+JSON.parse(text, reviver_function) // Revivers are user-defined functions that format data before parsing into JSON.
+}
+
+JSON.stringify(value, [replacer, space]) // Transforms JSON into a JSON string.
+```
+
+### Testing API Requests
+
+-   [Hoppscotch.io](https://hoppscotch.io/)
+-   [SWAPI - Star Wars API](WAPI.dev)
+
+### HTTP Verbs and Status Codes
+
+Verbs:
+
+> GET, POST, PUT ... Different ways of making requests.
+
+Status Codes:
+
+Codes that indicate whether a specific HTTP request has been successfully completed. You'll get a number
+
+-   Informational responses (100–199)
+-   Successful responses (200–299)
+-   Redirection messages (300–399)
+-   Client error responses (400–499
+-   Server error responses (500–599)
+
+### Query Strings
+
+Example: `https://duckduckgo.com/?q=fennec+fox&t=h_&ia=web`
+
+### Fetch API
+
+[MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+```js
+fetch("https://swapi.dev/api/people/1/")
+    .then((resolve) => {
+        console.log("RESOLVED!", resolve);
+        return resolve.json();
+    })
+    .then((data) => {
+        console.log("JSON DONE", data);
+    })
+    .catch((error) => {
+        console.log("ERROR!", error);
+    });
+
+const SWAPI = async () => {
+    const res = await fetch("https://swapi.dev/api/people/1");
+    const data = await res.json();
+    console.log(data);
+};
+```
