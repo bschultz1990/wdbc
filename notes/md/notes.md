@@ -1136,7 +1136,7 @@ Codes that indicate whether a specific HTTP request has been successfully comple
 -   Informational responses (100–199)
 -   Successful responses (200–299)
 -   Redirection messages (300–399)
--   Client error responses (400–499
+-   Client error responses (400–499)
 -   Server error responses (500–599)
 
 ### Query Strings
@@ -1146,6 +1146,12 @@ Example: `https://duckduckgo.com/?q=fennec+fox&t=h_&ia=web`
 ### Fetch API
 
 [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+#### Method 1:
+
+-   Get a promise from Fetch.
+-   Return the JSON out of Fetch.
+-   Display the data you fetched.
 
 ```js
 fetch("https://swapi.dev/api/people/1/")
@@ -1159,10 +1165,32 @@ fetch("https://swapi.dev/api/people/1/")
     .catch((error) => {
         console.log("ERROR!", error);
     });
+```
 
-const SWAPI = async () => {
-    const res = await fetch("https://swapi.dev/api/people/1");
-    const data = await res.json();
+Method 2:
+
+-   Make this into an ASYNC function.
+
+```js
+const starWarsAsync = async () => {
+    const resolve = await fetch("https://swapi.dev/api/people/1/");
+    const data = await resolve.json();
     console.log(data);
+};
+```
+
+Method 2.5:
+
+-   Wrap this function in a TRY/CATCH:
+
+```js
+try {
+	const starWarsAsync = async () => {
+		const resolve = await fetch("https://swapi.dev/api/people/1/");
+		const data = await resolve.json();
+		console.log(data);
+	} catch (error) {
+		console.log("Error encountered.", error);
+	}
 };
 ```
