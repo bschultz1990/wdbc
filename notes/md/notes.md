@@ -1194,3 +1194,9 @@ try {
 	}
 };
 ```
+
+Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
+
+### AXIOS
+
+A library for making HTTP requests.
