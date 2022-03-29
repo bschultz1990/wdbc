@@ -1199,10 +1199,22 @@ Not a fan of parsing a separate JSON stream as part of your request ritual? Good
 
 ### AXIOS
 
-A library for making HTTP requests. This is a separate library from JavaScript.
+A library for making HTTP requests. This is a separate library from JavaScript. This will use Fetch for you, parse the JSON, and fill in the data of your resolved request.
 
 To include this in your projects, add this to the bottom of your BODY section in your HTML file:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+```
+
+Example with Star Wars API:
+
+```js
+try {
+    const getSWPerson = async () => {
+        const res = await axios.get("https://swapi.dev/api/people/1");
+    };
+} catch (error) {
+    console.log("Error:", error);
+}
 ```
