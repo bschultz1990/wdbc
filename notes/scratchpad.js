@@ -7,3 +7,12 @@ try {
 		console.log("Error encountered.", error);
 	}
 };
+
+try {
+	const getSWPerson = async() => {
+	const res = await axios.get("https://swapi.dev/api/people/1");
+}
+} catch (error) {
+	console.log("Error:", error)
+}
+
