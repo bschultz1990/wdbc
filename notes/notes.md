@@ -1197,7 +1197,7 @@ try {
 
 Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
 
-### AXIOS
+## AXIOS
 
 A library for making HTTP requests. This is a separate library from JavaScript. This will use Fetch for you, parse the JSON, and fill in the data of your resolved request.
 
@@ -1217,4 +1217,16 @@ try {
 } catch (error) {
     console.log("Error:", error);
 }
+```
+
+### Setting Headers in AXIOS:
+
+Ways to sift through the extra HTML and get to your JSON data. Some APIS will default to giving you HTML. Here's how to fix that...
+
+```js
+const getJoke = async () => {
+    const config = { headers: { Accept: `application/json` } }; // THIS WILL VARY BETWEEN APIS. READ THE DOCS.
+    const res = await axios.get(`https://icanhazdadjoke.com/`);
+    console.log(res.data.joke);
+};
 ```
