@@ -11,6 +11,7 @@ form.addEventListener("submit", async function (e) {
         const showLink = document.createElement("a");
         showLink.id = `link${i}`;
         showLink.href = result.data[`${i}`].show.url;
+        showLink.target = "_blank";
 
         const showImg = document.createElement("img");
         showImg.src = result.data[`${i}`].show.image.medium;
