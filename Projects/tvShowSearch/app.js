@@ -18,14 +18,10 @@ form.addEventListener("submit", async function (e) {
 
         showImg.addEventListener("mouseenter", function (e) {
             e.stopPropagation(); // Stop event propogation
-            showImg.width = showImg.width + 10;
-            showImg.hight = showImg.width + 10;
         });
 
         showImg.addEventListener("mouseleave", function (e) {
             e.stopPropagation(); // Stop event propogation
-            showImg.width = showImg.width - 10;
-            showImg.hight = showImg.width - 10;
         });
 
         showLink.appendChild(showImg);

@@ -1,3 +1,9 @@
 .showImg {
     margin: 10px;
+    transition: transform 250ms, box-shadow 250ms;
+}
+
+.showImg:hover {
+    transform: scale(1.08, 1.08);
+    box-shadow: 3px 3px 8px black;
 }
