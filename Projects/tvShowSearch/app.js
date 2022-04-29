@@ -7,26 +7,29 @@ form.addEventListener("submit", async function (e) {
     const search = form.elements.query.value;
     const result = await axios.get(`http://api.tvmaze.com/search/shows?q=${search}`);
     for (let i = 0; i <= 10; i++) {
-        // // Display show names of the first 10 results from the query:
-        // const nameHeading = document.createElement("h3");
-        // nameHeading.innerText = result.data[`${i}`].show.name;
-        // resultbox.appendChild(nameHeading);
-
-        // // Display the images of the first 10 results from the query:
-        // const showImg = document.createElement("img");
-        // showImg.src = result.data[`${i}`].show.image.medium;
-        // resultbox.appendChild(showImg);
-
         // Display the images of the first 10 results from the query as links:
         const showLink = document.createElement("a");
         showLink.id = `link${i}`;
         showLink.href = result.data[`${i}`].show.url;
+
         const showImg = document.createElement("img");
         showImg.src = result.data[`${i}`].show.image.medium;
+        showImg.classList.add("showImg");
+
+        showImg.addEventListener("mouseenter", function (e) {
+            e.stopPropagation(); // Stop event propogation
+            showImg.width = showImg.width + 10;
+            showImg.hight = showImg.width + 10;
+        });
+
+        showImg.addEventListener("mouseleave", function (e) {
+            e.stopPropagation(); // Stop event propogation
+            showImg.width = showImg.width - 10;
+            showImg.hight = showImg.width - 10;
+        });
+
         showLink.appendChild(showImg);
         resultbox.appendChild(showLink);
-
-        // console.log(result.data[`${i}`].show.name);
     }
 });
 
@@ -36,6 +39,5 @@ function removeAllChildNodes(parent) {
     }
 }
 
-// TODO: Increase margin of image results (add a class that makes this look cool)
 // TODO: Add a cool rollover effect to the result images. Fade out the image
 // and display the show's title.

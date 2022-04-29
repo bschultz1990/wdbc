@@ -1120,7 +1120,7 @@ JSON.stringify(value, [replacer, space]) // Transforms JSON into a JSON string.
 
 ### Testing API Requests
 
--   [Hoppscotch.io](https://hoppscotch.io/)
+-   [Hoppscotch.io](https://hoppscotch.io/) - Alternative to Postman
 -   [SWAPI - Star Wars API](WAPI.dev)
 
 ### HTTP Verbs and Status Codes
