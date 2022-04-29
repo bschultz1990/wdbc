@@ -1,14 +1,41 @@
-// Add a click event listener on the Search button to search the tv show archive
-// based on your input into the text field.
-
-// Return an array of the first five images of the TV shows returned
-
-// For every new search, clear the page of existing results.
-
 const form = document.querySelector("#searchForm");
+const resultbox = document.querySelector("#resultbox");
+
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
+    removeAllChildNodes(resultbox); // Clear results for subsequent searches.
     const search = form.elements.query.value;
     const result = await axios.get(`http://api.tvmaze.com/search/shows?q=${search}`);
-    console.log(result.data);
+    for (let i = 0; i <= 10; i++) {
+        // // Display show names of the first 10 results from the query:
+        // const nameHeading = document.createElement("h3");
+        // nameHeading.innerText = result.data[`${i}`].show.name;
+        // resultbox.appendChild(nameHeading);
+
+        // // Display the images of the first 10 results from the query:
+        // const showImg = document.createElement("img");
+        // showImg.src = result.data[`${i}`].show.image.medium;
+        // resultbox.appendChild(showImg);
+
+        // Display the images of the first 10 results from the query as links:
+        const showLink = document.createElement("a");
+        showLink.id = `link${i}`;
+        showLink.href = result.data[`${i}`].show.url;
+        const showImg = document.createElement("img");
+        showImg.src = result.data[`${i}`].show.image.medium;
+        showLink.appendChild(showImg);
+        resultbox.appendChild(showLink);
+
+        // console.log(result.data[`${i}`].show.name);
+    }
 });
+
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+// TODO: Increase margin of image results (add a class that makes this look cool)
+// TODO: Add a cool rollover effect to the result images. Fade out the image
+// and display the show's title.

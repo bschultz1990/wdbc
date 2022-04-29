@@ -1,0 +1,3 @@
+Show Name: result.data[NUM].show.name
+Show Image: result.data[NUM].show.image.medium
+Show URL: result.data[NUM].show.url
