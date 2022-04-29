@@ -17,13 +17,13 @@ form.addEventListener("submit", async function (e) {
         showImg.src = result.data[`${i}`].show.image.medium;
         showImg.classList.add("showImg");
 
-        showImg.addEventListener("mouseenter", function (e) {
-            e.stopPropagation(); // Stop event propogation
-        });
+        // showImg.addEventListener("mouseenter", function (e) {
+        //     e.stopPropagation(); // Stop event propogation
+        // });
 
-        showImg.addEventListener("mouseleave", function (e) {
-            e.stopPropagation(); // Stop event propogation
-        });
+        // showImg.addEventListener("mouseleave", function (e) {
+        //     e.stopPropagation(); // Stop event propogation
+        // });
 
         showLink.appendChild(showImg);
         resultbox.appendChild(showLink);
