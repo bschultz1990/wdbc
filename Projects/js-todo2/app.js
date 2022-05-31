@@ -1,7 +1,7 @@
 const activeForm = document.querySelector("#activeForm");
 const list = document.querySelector("#list");
 
-activeForm.addEventListener("submit", function(e) {
+activeForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const activeText = document.querySelector("#activeText");
@@ -13,18 +13,17 @@ activeForm.addEventListener("submit", function(e) {
 
     const newLi = document.createElement("li");
     activeLi.id = "";
-    newLi.id = "activeLi"
+    newLi.id = "activeLi";
     list.appendChild(newLi);
 
     const newText = document.createElement("input");
-    activeText.id = ""
+    activeText.id = "";
     newText.id = "activeText";
     newLi.appendChild(newText);
     newText.focus();
 
-    return inactiveLi = document.querySelectorAll(".inactiveLi");
-
-})
+    return (inactiveLi = document.querySelectorAll(".inactiveLi"));
+});
 
 // for (let li in inactiveLi) {
 //     li.addEventListener("mouseenter", function(e){
