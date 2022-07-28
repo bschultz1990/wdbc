@@ -258,8 +258,7 @@ shapes.splice(0, 1, "square"); // (start,deletecount,replacement)
 
 ### Sort
 
-Converts everything to a strong, then sorts.
-Kind of useless now that we have .map, etc...
+Converts everything to a strong, then sorts. Kind of useless now that we have .map, etc...
 
 ```js
 let scores = [42, 54, 64, 74, 100, 99];
@@ -284,8 +283,7 @@ function validUserNames(usernames) {
 
 ## Arrays and Const
 
-Const with arrays cares about the memory rerence, not the array contents.
-How to access things in arrays in other arrays.
+Const with arrays cares about the memory rerence, not the array contents. How to access things in arrays in other arrays.
 
 ```js
 const ticTacToe = [
@@ -327,6 +325,40 @@ const robots = {
 for (let name in robots) {
     console.log(robots[name]);
 }
+```
+
+### Nesting Stuff Inside Objects
+
+```js
+const spaceship = {
+    telescope: {
+        yearBuilt: 2018,
+        model: "91031-XLT",
+        focalLength: 2032,
+    },
+    crew: {
+        captain: {
+            name: "Sandra",
+            degree: "Computer Engineering",
+            encourageTeam() {
+                console.log("We got this!");
+            },
+        },
+    },
+    engine: {
+        model: "Nimbus2000",
+    },
+    nanoelectronics: {
+        computer: {
+            terabytes: 100,
+            monitors: "HD",
+        },
+        "back-up": {
+            battery: "Lithium",
+            terabytes: 50,
+        },
+    },
+};
 ```
 
 ## Loops
@@ -502,9 +534,7 @@ const cat = {
     instrument: "Electric Guitar",
     hobby: "Skateboarding",
     intro() {
-        console.log(
-            `Hi! My name is ${this.name}! I am the color ${this.color}. I play the ${this.instrument} and my favorite hobby is ${cat.hobby}.`
-        );
+        console.log(`Hi! My name is ${this.name}! I am the color ${this.color}. I play the ${this.instrument} and my favorite hobby is ${cat.hobby}.`);
     },
 };
 cat.intro(); // Hi! My name is Pete! I am the color Blue. I play the Electric Guitar and my favorite hobby is Skateboarding.
@@ -516,9 +546,7 @@ const cat = {
     instrument: "Electric Guitar",
     hobby: "Skateboarding",
     intro() {
-        console.log(
-            `Hi! My name is ${cat.name}! I am the color ${cat.color}. I play the ${cat.instrument} and my favorite hobby is ${cat.hobby}.`
-        );
+        console.log(`Hi! My name is ${cat.name}! I am the color ${cat.color}. I play the ${cat.instrument} and my favorite hobby is ${cat.hobby}.`);
     },
 };
 cat.intro(); // Hi! My name is Pete! I am the color Blue. I play the Electric Guitar and my favorite hobby is Skateboarding.
@@ -662,8 +690,7 @@ function allEvens(numbers) {
 
 ### Reduce
 
-Executes a user-supplied "reducer" callback function on each element in an array,
-passing in the return value from the calculation on the preceding element.
+Executes a user-supplied "reducer" callback function on each element in an array, passing in the return value from the calculation on the preceding element.
 
 ```js
 let sumtotal = rollArray.reduce((total, i) => total + i);
@@ -822,8 +849,7 @@ birds.map(({ Name, Sci }) => {
 
 ## The DOM (**D**ocument **O**bject **M**odel)
 
-A JavaScript representation of a webpage. OR
-HTML and CSS go in, Javascript objects come out. YAAAY! FINALLY! :D
+A JavaScript representation of a webpage. OR HTML and CSS go in, Javascript objects come out. YAAAY! FINALLY! :D
 
 Go to any webpage. Open Chrome dev tools and type this in to get a preview:
 
@@ -1044,9 +1070,7 @@ Ways to hand off events to the browser and keep our place in the code.
 
 ## The Call Stack
 
-The last-in, first-out approach for evaluating logic, like a stack of books.
-A tool JavaScript uses to keep place in our code.
-The code pauses when it calls any function and waits until it's done before resuming.
+The last-in, first-out approach for evaluating logic, like a stack of books. A tool JavaScript uses to keep place in our code. The code pauses when it calls any function and waits until it's done before resuming.
 
 [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
