@@ -1,8 +1,8 @@
 for (let i = 1; i <= 700; i++) {
-    let pokemon = document.createElement('img');
-    let pokeURL = ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/', i,'.png']
-    pokemon.src = `${pokeURL[0]}${pokeURL[1]}${pokeURL[2]}`;
-    document.querySelector('#container').appendChild(pokemon);
+	let pokemon = document.createElement('img');
+	let pokeURL = ['https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/', i,'.png']
+	pokemon.src = `${pokeURL[0]}${pokeURL[1]}${pokeURL[2]}`;
+	document.querySelector('#container').appendChild(pokemon);
 }
 
 
