@@ -1254,3 +1254,5 @@ const getJoke = async () => {
     console.log(res.data.joke);
 };
 ```
+
+
