@@ -1255,4 +1255,6 @@ const getJoke = async () => {
 };
 ```
 
+## Prototypes, Classes, and OOP
+### Factory Functions
 
