@@ -1255,6 +1255,217 @@ const getJoke = async () => {
 };
 ```
 
-## Prototypes, Classes, and OOP
+# Prototypes, Classes, and OOP
 ### Factory Functions
+Modular functions to be assembled at operation. Go from these:
+```js
+function hex(r,g,b) {
+    return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
+}
+function rgb (r,g,b) {
+    return 'rgb(${r}, ${g}, ${b})';
+}
+```
 
+To THIS: :grin:
+
+```js
+function makeColor (r,g,b) {
+const color = {};
+    color.r = r;
+    color.g = g;
+    color.b = b;
+
+    color.rgb = function() {
+        const {r,g,b} = this;
+        return 'rgb(${r}, ${g}, ${b})';
+    }
+    color.hex = function (){
+        return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
+    }
+    return color
+}
+```
+HOWEVER, cool as this is, this isn't the most popular way. A better one is ahead... :)
+
+### Constructor Functions (The Better Way)
+In the above, each color function has its own RGB value. But, there's no good reason to keep a copy of the function itself on the object. To be more efficient, here's how to separate out the functions.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
+
+```js
+// The NEW keyword does the following:
+// Creates a blank JavaScript object
+// Links (sets the constructor of) this object to another object.
+// Passes the newly created object from step 1 as the THIS context.
+// Returns THIS if the function doesn't return its own object.
+
+function Color(r,g,b) {
+    this.r=r;
+    this.g=g;
+    this.b=b;
+    console.log(this)
+}
+
+// Define 
+Color.prototype.rgb = function(){
+    const {r,g,b} = this;
+    return 'rgb(${r}, ${g}, ${b})';
+}
+
+Color.prototype.rgba = function(a=1.0) {
+    const {r,g,b,a} = this;
+    return 'rgb(${r}, ${g}, ${b}, ${a})';
+}
+
+// Assign me like this:
+const color1 = new Color(40,50,60)
+const color2 = new Color(10,10,255)
+
+// Call me like this:
+color1.rgb()
+color1.hex()
+```
+But WAIT! There's an even better way that's not so messy using the Class syntax.
+
+### JavaScript Classes (The Much More Better Way)
+```js
+// Define a class. What does it mean to be a color...?
+class Color {
+    // This executes immediately whenever a NEW Color is created.
+    // Add these as properties on the object returned:
+    constructor (r,g,b, name) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+        this.colorName = name;
+    }
+    rgb(){
+        // Destructure the rgb object to THIS.
+        const {r,g,b} = this;
+        return 'rgb(${r}, ${g}, ${b})';
+    }
+    rgba(){
+        const {r,g,b,a} = this;
+        return 'rgb(${r}, ${g}, ${b}, ${a})';
+    }
+}
+
+const color1 = new Color(255,67,89, 'tomato');
+```
+
+#### More Classes Practice
+- [Lesson Link](https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/23344430#overview)
+- [Coding Train: JavaScript Classes](https://www.youtube.com/watch?v=T-HGdc8L-7w)
+
+### Extends and Super Keywords
+More power-ups for your arsenal.
+
+#### EXTENDS:
+To avoid re-using functionality, take this:
+
+```js
+class Cat {
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    eat(){
+        return `${this.name} is eating.`;
+    }
+    meow(){
+        return `MEOWWW!!`
+    }
+}
+
+class Dog {
+    constructor(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    eat(){
+        return `${this.name} is eating.`;
+    }
+    bark(){
+        return `BJORK.`
+    }
+}
+```
+To the next level:
+```js
+// Separate duplicate functionality to its own Class:
+class Pet {
+    constructor(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    eat() {
+        return `${this.name} is eating.`;
+    }
+}
+
+// Reintroduce your unique classes but have them
+// EXTEND the Pet class above:
+class Dog extends Pet {
+    bark() {
+        return `BJORK.`
+    }
+}
+
+class Cat extends Pet {
+    meow() {
+        return `MEOWWW!!`;
+    }
+}
+
+// Use me like this. Will fall back to the parent Pet Class
+// if I don't find a constructor in your Cat or Dog Classes.
+cont wyatt = new Dog ('Wyatt, 13');
+
+// Also like this:
+wyatt.eat() // Returns: "Wyatt is eating."
+```
+
+#### SUPER
+References the "Super" Class - (in this case, the Pet Class.)
+
+Take this:
+```js
+class Pet {
+    constructor(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    eat() {
+        return `${this.name} is eating.`;
+    }
+}
+// I want to add unique constructor stuff:
+class Cat extends Pet {
+    constructor(name, age, livesLeft = 9){
+        this.name = name;
+        this.age = age;
+        this.livesLeft = livesLeft; // NEW INFO
+    }
+}
+```
+To a condensed version like this:
+```js
+class Pet {
+    constructor(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    eat() {
+        return `${this.name} is eating.`;
+    }
+}
+// Remove the duplication and add a reference to the super (Pet) class.
+class Cat extends Pet {
+    constructor(name, age, livesLeft = 9){
+        super(name,age); // References and extends the super (Pet) class.
+        this.livesLeft = livesLeft;
+    }
+}
+
+```
