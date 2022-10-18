@@ -1469,3 +1469,89 @@ class Cat extends Pet {
 }
 
 ```
+## Exploring the Terminal
+Here's the doorway to the back-end content on the server side. Ohhh yes... :)
+
+Let's shift from making static pages to making dynamic pages.
+- Speed
+- Access to Powerful OS Settings
+- Tools Like Node, Express, etc...
+
+    ---
+- **Terminal**: A text-based interface to your computer. Originally a physical object, but now we use software terminals.
+- **Shell**: The software that runs on the terminal. (bash, zsh, etc...)
+
+### Windows Terminal and Shell Installation
+[YouTube - Installing Git Bash on Windows 10](https://www.youtube.com/watch?v=qdwWe9COs9k)
+
+### Common Commands
+- **pwd** Print Working Directory
+- **ls** List (directory contents)
+- **cd** Change Directory
+- **~** Home Directory
+- **mkdir** Make 1 or More Directories
+- **man** Manual pages of any command
+- **touch** Creates files. Include an extension.
+- **rm** Remove a file
+- **rmdir** Remove an EMPTY directory
+- **sudo rm -r [dir name]** Recursively delete a directory and everything in it. DANGEROUS.
+
+### Relative vs. Absolute Paths
+- **Relative Path**: A path to a file or folder relative to the current folder.
+- **Absolute Path**: A specific path to a file or folder regardless of your location.
+
+## NODE.JS
+JavaScript that runs outside of  the browser.
+- Installation
+- Node REPL (Like JavaScript Console)
+- Running Node Files
+- Process
+- argv
+- File System Module (read/write files using JavaScript!!)
+
+### Intro to Node
+Node is a JavaScript runtime, allowing us to run JavaScript outside of the web browser. You can use the syntax you know and love to write JavaScript on the server side. :)
+
+[Reddit - Node vs. Deno](https://www.reddit.com/r/node/comments/nx9qqr/deno_vs_nodejs_a_comparison_you_need_to_know/)
+
+What can you do with Node?
+- Web Servers
+- Command Line Tools
+- Native Apps (VS Code is a Node app!!)
+- Video Games, etc...
+
+Node is everywhere...
+- NASA
+- Netflix
+- VS Code
+- Slack (amped up with Electron)
+- Twitch, etc...
+
+### The Node REPL
+Read, Evaluate, Print, Loop.
+
+It's a JavaScript console in the cmd line!
+
+STUFF YOU WON'T HAVE HERE:
+- document
+- window
+- any subsequent DOM elements
+
+So, where is your global object?
+- global :grin:
+
+STUFF YOU HAVE INSTEAD:
+- Operating system modules for files and folders, etc...
+
+To run a .js file from Node, type:
+```
+node yourfile.js
+```
+
+### Process and Argv
+***process*** Provides information about and control over the current Node.js process. It's always available to Node.js applications without using require().
+
+***process.argv*** Returns an array containing the command line arguments passed when the Node.js process was launched.
+
+- First Element: process.execPath (where you ran Node from)
+- Second Element: path to the JavaScript file being executed.
