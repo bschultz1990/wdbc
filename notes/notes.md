@@ -1555,3 +1555,4 @@ node yourfile.js
 
 - First Element: process.execPath (where you ran Node from)
 - Second Element: path to the JavaScript file being executed.
+- Anything afterwards is arguments you 
