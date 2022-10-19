@@ -1555,4 +1555,18 @@ node yourfile.js
 
 - First Element: process.execPath (where you ran Node from)
 - Second Element: path to the JavaScript file being executed.
-- Anything afterwards is arguments you 
+- Anything afterwards are the arguments you define when you run the script.
+
+
+### Node and the File System - An Ongoing Saga
+`fs` - File System Module
+
+Let's make a Node script that creates the following files/folders in the following format:
+
+`node boilerplate.js [project_folder]`
+```
+[project_folder]
+    - index.html
+    - styles.css
+    - app.js
+```
