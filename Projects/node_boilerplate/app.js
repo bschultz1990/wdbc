@@ -7,7 +7,6 @@ const folderName = process.argv[2] || 'New_Folder'
 fs.mkdirSync(folderName);
 console.log(`Created project folder: ${folderName}`);
 
-console.log(typeof(`${folderName}/styles.css`))
 // fs.writeFileSync("test.txt");
 // fs.writeFileSync(`${folderName}/styles.css`);
 // fs.writeFileSync(`${folderName}/app.js`);
