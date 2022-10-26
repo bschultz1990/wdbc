@@ -1585,4 +1585,55 @@ fs.writeFileSync(`${folderName}/index.html`, '');
 fs.writeFileSync(`${folderName}/styles.css`, '');
 fs.writeFileSync(`${folderName}/app.js`, '');
 ```
+## Modules and NPM
+- Module.Exports
+- Requiring Modules
+- Using NPM
+- Installing Packages
+- Creating Package.json files
+
+### working with module.exports
+Ways to share .js scripts between files. Sharing is caring! :)
+
+```js
+// File One:
+const add = (x,y) => x + y;
+module.exports.add = add;
+```
+```js
+// File Two
+require('./path_to_your_js_file')
+```
+
+Or, you could do it twice as clean:
+
+```js
+// File One:
+exports.add = (x,y) => x + y;
+```
+```js
+// File Two:
+require('./path_to_your_js_file')
+```
+
+### Requiring an ENTIRE DIRECTORY:
+```js
+// required_folder/index.js
+const blue = require('.blue')
+const sadie = require('.sadie')
+const tommy = require('.tommy')
+
+const allCats = [blue, sadie, tommy]
+module.exports = allCats
+```
+```js
+// File calling required_folder
+// This looks for an index.js file first and
+// requires whatever index.js requires.
+const required_folder = require(./required_folder)
+```
+## NPM (Node Package Manager)
+```cmd
+npm install name-of-package
+```
 
