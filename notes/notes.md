@@ -1592,7 +1592,7 @@ fs.writeFileSync(`${folderName}/app.js`, '');
 - Installing Packages
 - Creating Package.json files
 
-### working with module.exports
+### Working With `module.exports`
 Ways to share .js scripts between files. Sharing is caring! :)
 
 ```js
@@ -1636,4 +1636,26 @@ const required_folder = require(./required_folder)
 ```cmd
 npm install name-of-package
 ```
+### Creating Package.json Files
+Contains a record of all the packages and their ALL-IMPORTANT DEPENDENCIES for your project. This is super useful if you're sharing your project and want the recipient to have all the dependencies you do.
+Create this file using a specific command:
 
+```
+mkdir test
+cd test
+npm init
+```
+This will walk you through the initial Node setup process. Now, you can install packages while you're inside your project. When you do, `npm` will add them and their dependencies into your `package.json` file. It's a record of everything you're using in the project.
+
+### :star: Installing All the Depencies for a Project :star:
+
+If you're sharing a Node project, don't include your `node_modules` folder. Include your `package.json` file and let your recipient install your dependencies themselves.
+
+If you're the recipient developer of a `package.json` file, run `npm install` from the root directory of your shared project and it'll read `package.json`, find all the project dependencies, and hit all the get 'em links.
+
+### Language Guesser Challenge
+Slap these projects together, type in some language in the command line, and POOF! It'll guess the language you typed in.
+```
+https://github.com/wooorm/franc
+https://github.com/adlawson/nodejs-langs
+```
