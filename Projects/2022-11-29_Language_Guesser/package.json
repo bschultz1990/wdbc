@@ -1,0 +1,28 @@
+{
+  "name": "2022-11-29_language_guesser",
+  "version": "1.0.0",
+  "description": "Type in a language and have the computer guess what language it is!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "language",
+    "server",
+    "guess",
+    "game",
+    "commandline",
+    "command",
+    "terminal",
+    "node",
+    "npm",
+    "javascript",
+    "js"
+  ],
+  "author": "Ben Schultz",
+  "license": "ISC",
+  "dependencies": {
+    "franc": "^6.1.0",
+    "langs": "^2.0.0"
+  }
+}
