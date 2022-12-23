@@ -25,8 +25,8 @@ activeForm.addEventListener("submit", function (e) {
     return (inactiveLi = document.querySelectorAll(".inactiveLi"));
 });
 
-// for (let li in inactiveLi) {
-//     li.addEventListener("mouseenter", function(e){
-//         li.
-//     })
-// }
+for (let li in inactiveLi) {
+    li.addEventListener("mouseenter", function(e){
+
+    })
+}
