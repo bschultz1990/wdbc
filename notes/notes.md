@@ -1659,3 +1659,20 @@ Slap these projects together, type in some language in the command line, and POO
 https://github.com/wooorm/franc
 https://github.com/adlawson/nodejs-langs
 ```
+# Creating Servers With Express
+
+Express is a web development framework that helps servers get up and running with Node. 
+- Listens to incoming requests
+- Figure out what the user is asking for
+- Crafts an http response and associated content
+
+**Library:** Something that's integrated into your code at any point. You decide when and how to incorporate it into your code.
+
+**Framework:** Provides the structure for an application and you follow the framework's rules.
+
+```bash
+cd Project/directory
+npm init -y
+npm install express
+```
+```bash```
