@@ -1670,9 +1670,118 @@ Express is a web development framework that helps servers get up and running wit
 
 **Framework:** Provides the structure for an application and you follow the framework's rules.
 
+Navigate to the directory you'd like your project, then:
 ```bash
 cd Project/directory
 npm init -y
 npm install express
 ```
-```bash```
+
+Inside your app.js:
+```js
+const express = require('express');
+const app = express()
+
+// Trigger this every time a request is made. Then, respond with content!
+// response.send() sends an HTTP response via JSON.
+app.use((request,response)=> {
+	console.log("Request received!")
+	response.send('<h1>This is a h1 header!</h1>')
+})
+
+// All we need to open up a server is to start listening. :)
+// localhost:3000
+app.listen(3000, () => {
+	console.log("Listening on port 3000...")
+})
+```
+## Express Routing Basics
+Routing: Taking incoming requests and paths (/dogs, /help, etc...) and match them up with code.
+Let's expand the above example a little bit.
+```js
+const express = require('express');
+const app = express()
+
+// Trigger this every time a request is made. Then, respond with content!
+// response.send() sends an HTTP response via JSON.
+// app.use((request,response)=> {
+// 	console.log("Request received!")
+// 	response.send('<h1>This is a h1 header!</h1>')
+// })
+
+// Respond to GET requests.
+app.get('/', (request,response)=>{
+	response.send('This is the home page.')
+})
+app.get('/cats', (request,response)=>{
+	response.send('MEOW! Cat request!')
+})
+
+app.get('/birds', (request,response)=>{
+	response.send('WANNA TREATTREAT? CHIRP!')
+})
+
+app.post('/birds', (request,response)=>{
+	response.send('HOOT HOOT! This is a POST request!')
+})
+
+app.get('*', (request,response)=>{
+	response.send("I don't know that path.")
+})
+
+// All we need to open up a server is to start listening. :)
+// localhost:3000
+app.listen(3000, () => {
+	console.log("Listening on port 3000...")
+})
+```
+
+## Express Path Parameters
+Enough with hard-coding our responses. Time to template and variable it up!
+Add this to the middle of the above code:
+
+```js
+// Define and match a pattern, like Reddit for example.
+app.get('/r/:subreddit/:postID', (request,response) => {
+	const {subreddit,postID} = request.params;
+	response.send(`<h1>Viewing Post ID: ${postID} in the ${subreddit} Subreddit.</h1>`)
+})
+```
+
+Now, `http://localhost:3000/r/birds/birdfur` will respond with:
+
+```html
+<h1>Viewing Post ID: birdfur in the birds Subreddit.</h1>
+```
+
+## Express with Query Strings
+**Query String:** A portion of a URL that comes after a `?`
+
+For example, on MDN, this looks like:
+`https://developer.mozilla.org/en-US/search?q=searchterm`
+
+In our script, it would look something like this:
+```js
+app.get('/search', (request,response)=> {
+	const {q} = request.query;
+	if(!q) {
+		response.send("If something is not in our records, it does not exist!")
+	}
+	response.send(`<h1>Search results for: ${q}</h1>`)
+})
+
+```
+
+## Auto-Restart Node Server with Nodemon
+Nodemon restarts the server every time it sees a .js change.
+
+This is more specific than the `live-server` command and works primarily with Javascript and Node projects.
+Global package! Use anywhere!
+```bash
+npm install -g nodemon
+```
+
+Then, start your server with:
+```bash
+nodemon [your node app]
+```
