@@ -1785,3 +1785,74 @@ Then, start your server with:
 ```bash
 nodemon [your node app]
 ```
+
+# Creating Dynamic HTML With Templating
+- What is templating? (Using EJS)
+- Configuring Express to work with EJS (Embedded JavaScript)
+- Passing Data from a Node App to Templates
+- Serving Static Assets
+- Creating Partials
+- EJS Loops and Conditionals
+
+## What is Templating?
+Problemo: 
+
+**Templating**: Allows us to define a preset "pattern" for a webpage that we can dynamically modify.
+
+We could define a single "Search" template that displays all the results for a given search term. We don't know what the term is or how many results there are ahead of time. The webpage is created on the fly.
+
+There are multiple ways to do this:
+**EJS (Embedded JavaScript)**
+**Handlebars**
+**Jade**
+**Nunjucks**
+
+All these options output HTML. However, their syntax  is different.
+
+## Configuring Express for EJS
+```bash
+npm init -y
+npm i Express
+npm i EJS
+touch index.js
+mkdir views/home.ejs
+```
+
+Express App:
+```js
+// Initialize our app.
+const express = require('express');
+const app = express();
+app.get('/', (request,response) => {
+// Testing...
+	response.send("HI!")
+// Render our home.ejs file. Any time an .ejs file sees JavaScript,
+// it will evaulate it and spit out HTML.
+	response.render('home.ejs')
+})
+
+// Set EJS parameters. Make sure your project has a directory
+// named 'views' so our app can use this code.
+app.set('view engine', 'ejs')
+
+// Listen on a port.
+app.listen(3000, () => {
+console.log("Listening on port 3000.")
+})
+```
+
+home.ejs
+```ejs
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<script src="#####"></script>
+  </body>
+</html>
+```
