@@ -1,36 +1,37 @@
-const { request, response } = require('express');
 const express = require('express');
-const app = express()
+const app = express();
+const path = require('path');
+const redditdata = require('./data.json')
 
-// Trigger this every time a request is made. Then, respond with content!
-// response.send() sends an HTTP response via JSON.
-// app.use((request,response)=> {
-// 	console.log("Request received!")
-// 	response.send('<h1>This is a h1 header!</h1>')
-// })
+// Set the views directory. Make this runnable anywhere!
+app.set('views', path.join(__dirname, '/views'));
 
-// Respond to all kinds of requests!
-// Home page
-app.get('/', (request,response)=>{
-	response.send('This is the home page.')
+
+// Serve static files from THIS folder. Make sure you create these directories
+// and join this directory so it doesn't break when you run your app outside the directory.
+// __dirname is the ABSOLUTE path to the app.js file.
+app.use(express.static(path.join(__dirname, 'public')))
+
+console.log(redditdata)
+
+// Set the view engine to ejs.
+app.set('view engine', 'ejs')
+
+// Home directory
+app.get('/', (request,resolve) => {
+	resolve.render('home')
 })
 
-// Define and match a pattern, like Reddit for example.
-app.get('/r/:subreddit/:postID', (request,response) => {
-	const {subreddit,postID} = request.params;
-	response.send(`<h1>Viewing Post ID: ${postID} in the ${subreddit} Subreddit.</h1>`)
+// Define a pattern like Reddit and match it.
+app.get('/r/:subreddit', (request,resolve) => {
+	const { subreddit } = request.params;
+	// Drill into the subreddit info.
+	const data = redditdata[subreddit]
+
+	// Pass the JSON data as an array of arguments with the rest operator.
+	resolve.render('subreddit', { ...data});
 })
 
-app.get('/search', (request,response)=> {
-	const {q} = request.query;
-	if(!q) {
-		response.send("If something is not in our records, it does not exist!")
-	}
-	response.send(`<h1>Search results for: ${q}</h1>`)
-})
-
-// All we need to open up a server is to start listening. :)
-// localhost:3000
-app.listen(3000, () => {
-	console.log("Listening on port 3000...")
+app.listen(3000, ()=> {
+	console.log("Listening on port 3000.")
 })

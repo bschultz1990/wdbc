@@ -1514,6 +1514,11 @@ Node is a JavaScript runtime, allowing us to run JavaScript outside of the web b
 
 [Reddit - Node vs. Deno](https://www.reddit.com/r/node/comments/nx9qqr/deno_vs_nodejs_a_comparison_you_need_to_know/)
 
+## Node Documentation
+
+[Node Docs](https://nodejs.org/api/)
+
+
 What can you do with Node?
 - Web Servers
 - Command Line Tools
@@ -1812,8 +1817,9 @@ All these options output HTML. However, their syntax  is different.
 ## Configuring Express for EJS
 ```bash
 npm init -y
-npm i Express
+npm i express
 npm i EJS
+npm i -g nodemon
 touch index.js
 mkdir views/home.ejs
 ```
@@ -1856,3 +1862,136 @@ home.ejs
   </body>
 </html>
 ```
+
+## Minor Issue: Fixing the Views Directory
+If we run our Node app outside its' folder, it fails to look up any other linked files. Fix this by adding this:
+
+```bash
+# Find our current working directory:
+node
+process.cwd()
+
+# Something like '/Users/coltsteele/Code/Exercises/Express_Templating'
+```
+
+```js
+// Make your app runnable anywhere!
+const path = require('path')
+// Take our current directory name and join that path to our /views directory.
+app.set('views', path.join(__dirname, '/views'))
+```
+
+Confused? Me too. The [Node.js Path Documentation](https://nodejs.org/api/path.html) is here to help.
+
+## EJS Interpolation Syntax
+It's souped up HTML. Learning the basic syntax to "fill in the blanks" like Mad Libs.
+
+###**Tag syntax**
+- <%=stuffhere%>**Evaluates `stuffhere` as JavaScript, then outputs the value into the template (HTML escaped)
+
+## Passing Data to Templates
+
+Best practice: Our templates should just display data. They should be as stupid as possible, pulling data from our index.js file as needed.
+
+Add these lines to your `index.js` file:
+```js
+// Add a new path. This page will display a random number from 1 to 10
+app.get('/rand', (request,response) => {
+    const num = Math.floor(Math.random()*10)+1;
+    response.render('random', {rand : num});
+    // :
+    // response.render('random', {num}
+})
+```
+
+New file! `random.ejs`
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Hello, world!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+</head>
+
+<body>
+  <h1>Your random number is: <%= rand %></h1>
+</body>
+</html>
+```
+
+## Reversing Direction: Passing Data to resolve.render()
+Subreddit Template Demo
+
+Add these lines to your app.js:
+```js
+app.get('/r/:subreddit', (request,resolution) => {
+    const {subreddit} = request.params
+    resolve.render('subreddit', {subreddit});
+})
+```
+
+```js
+// subreddit.ejs
+<body>
+  <h1>Browsing the <%= subreddit %> subreddit.</h1>
+</body>
+```
+
+This is the first step to looking up information in a database, then passing that data to resolve.render() to display the result.
+
+## Conditionals in EJS
+Doesn't look like a best practice, but here's a way to add logic inside your template.
+Yes, this is exactly the thing we cautioned against two sections ago.
+
+Uses a new tag:
+- **<% %>**: `Scriptlet` tag, for control-flow, no output
+
+Example 1 - Simple logic using a ternary operator:
+```js
+<h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
+```
+
+Example 2 - Complex logic allowing for more markup and stuffs:
+```js
+// Don't forget to surround every line of embedded logic with your tag.
+<% if (num%2 === 0) { %>
+<h2>That's an even number!</h2>
+<% } else { %>
+<h2>That's an odd number!</h2>
+<% } %>
+```
+We also use these braces a lot is in LOOPING!
+
+## Loops in EJS
+
+Take some data and format each chunk using loops. :)
+```js
+// app.js
+app.get('/cats', (request,response) => {
+    const cats = ['Pete', 'Callie', 'Rosebud', 'Whiskers', 'Pumpkin']
+    resolve.render('cats', {cats})
+})
+```
+
+```js
+// cats.ejs
+<h1>All the cats:</h1>
+
+<ul>
+    <% for (let cat of cats){ %>
+    <li><%= cat %></li>
+    <% } %>
+</ul>
+
+```
+
+## More Complex Reddit Example
+Using some JSON data to mimic what we might get back from a database, parse it into readable HTML using the skills described above.
+
+
+## Serving Static Files in Express
+START HERE: [Serving Static Files in Express]( https://expressjs.com/en/starter/static-files.html )
+
+Use `express.static(root, [options])` as **middleware** to serve static files on EVERY single request.
