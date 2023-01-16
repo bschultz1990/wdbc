@@ -1990,6 +1990,153 @@ app.get('/cats', (request,response) => {
 ## More Complex Reddit Example
 Using some JSON data to mimic what we might get back from a database, parse it into readable HTML using the skills described above.
 
+File structure:
+```bash
+app.js
+public
+    styles.css
+views
+    home.ejs
+    subreddit.ejs
+```
+
+### app.js
+```js
+const express = require('express');
+const app = express();
+const path = require('path');
+const redditdata = require('./data.json')
+
+// Set the views directory. Make this runnable anywhere!
+app.set('views', path.join(__dirname, '/views'));
+
+
+// Serve static files from THIS folder. Make sure you create these directories
+// and join this directory so it doesn't break when you run your app outside the directory.
+// __dirname is the ABSOLUTE path to the app.js file.
+app.use(express.static(path.join(__dirname, 'public')))
+
+console.log(redditdata)
+
+// Set the view engine to ejs.
+app.set('view engine', 'ejs')
+
+// Home directory
+app.get('/', (request,resolve) => {
+	resolve.render('home')
+})
+
+// Define a pattern like Reddit and match it.
+app.get('/r/:subreddit', (request,resolve) => {
+	const { subreddit } = request.params;
+	// Drill into the subreddit info.
+	const data = redditdata[subreddit]
+
+	// Pass the JSON data as an array of arguments with the rest operator.
+	resolve.render('subreddit', { ...data});
+})
+
+app.listen(3000, ()=> {
+	console.log("Listening on port 3000.")
+})
+```
+
+### data.json
+```json
+{
+	"soccer": {
+		"name": "Soccer",
+		"subscribers": 80000,
+		"description": "The football subreddit. News, results and discussion surrounding your favorite black and white sphere on the pitch.",
+		"posts": [
+			{
+				"title": "Marten de Roon to make pizza for more than 1,000 rabid fans. Streetgoers rejoice!",
+				"author": "joeextreme"
+			},
+			{
+				"title": "Stephan Lichtsteiner has retired from professional wrestling to join our ranks.",
+				"author": "odd person"
+			},
+			{
+				"title": "OFFICIAL: Dani Parejo signs for Villareal.",
+				"author": "joeextreme"
+			}
+		]
+	},
+	"chickens": {
+		"name": "Chickens",
+		"subscribers": 666633,
+		"description": "A place to post your chicken-related questions and media.",
+		"posts": [
+			{
+				"title": "He always tries to lie on top of the eggs, so we put ping pong balls in the egg carton.",
+				"author": "joeextreme",
+				"img": "https://i.redd.it/9pcjc67xo5ca1.jpg"
+			},
+			{
+				"title": "Is this Barred Rock a Rooster or Hen?",
+				"author": "catspajamas_550",
+				"img": "https://preview.redd.it/pij5yolfi8ca1.jpg?width=3024&format=pjpg&auto=webp&v=enabled&s=4130514482c781a4231fccbe36fcbf0311be8513"
+			},
+			{
+				"title": "Pics of my Chicken :)",
+				"author": "birdbrain90",
+				"img": "https://preview.redd.it/we5y35yqv4ca1.jpg?width=3072&format=pjpg&auto=webp&v=enabled&s=b4d00097a3d1a8a3a145c0f21bfd158652acdd33"
+			}
+		]
+	},
+	"mightyharvest": {
+		"name": "Mighty Harvest",
+		"subscribers": 9001,
+		"description": "Feeding many villages and village idiots for 10s of days.",
+		"posts": [
+			{
+				"title": "Making pumpkin soup for the entire town. Or possibly ending world hunger",
+				"author": "IndiaCee",
+				"img": "https://i.redd.it/817afo07g7ca1.jpg"
+			},
+			{
+				"title": "Behold the harvest that could feed earth twice",
+				"author": "samtheonlyone",
+				"img": "https://external-preview.redd.it/qr4Bof4NjtaBvNuJIPsTd22YUagwDZAB82j-0oO5Blk.jpg?auto=webp&v=enabled&s=c1a2163331cefac5cd3ca6240a1db15a366bf81b"
+			},
+			{
+				"title": "Enough for me and all my friends",
+				"author": "customerservice_",
+				"img": "https://i.redd.it/vkxybhdizaba1.jpg"
+			}
+		]
+	}
+}
+```
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= name %></title>
+	<link rel="stylesheet" href="/styles.css"
+</head>
+<body>
+	<h1>Behold the <%= name %> subreddit!</h1>
+	<h2><%= description %></h2>
+	<p><%= subscribers %> total subscribers</p>
+
+	<hr>
+
+	<% for(let post of posts){ %>
+	<article>
+		<p><%= post.title %> - <b><%= post.author %></b></p>
+		<% if (post.img) { %>
+			<img src="<%= post.img%>" alt="">
+		<% } %>
+	</article>
+<% } %>
+</body>
+</html>
+```
 
 ## Serving Static Files in Express
 START HERE: [Serving Static Files in Express]( https://expressjs.com/en/starter/static-files.html )
