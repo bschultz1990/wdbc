@@ -1896,7 +1896,7 @@ Best practice: Our templates should just display data. They should be as stupid 
 Add these lines to your `index.js` file:
 ```js
 // Add a new path. This page will display a random number from 1 to 10
-app.get('/rand', (request,response) => {
+app.get('/random', (request,response) => {
     const num = Math.floor(Math.random()*10)+1;
     response.render('random', {rand : num});
     // :
