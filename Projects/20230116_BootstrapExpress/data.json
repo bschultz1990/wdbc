@@ -1,0 +1,65 @@
+{
+	"soccer": {
+		"name": "Soccer",
+		"subscribers": 80000,
+		"description": "The football subreddit. News, results and discussion surrounding your favorite black and white sphere on the pitch.",
+		"posts": [
+			{
+				"title": "Marten de Roon to make pizza for more than 1,000 rabid fans. Streetgoers rejoice!",
+				"author": "joeextreme"
+			},
+			{
+				"title": "Stephan Lichtsteiner has retired from professional wrestling to join our ranks.",
+				"author": "odd person"
+			},
+			{
+				"title": "OFFICIAL: Dani Parejo signs for Villareal.",
+				"author": "joeextreme"
+			}
+		]
+	},
+	"chickens": {
+		"name": "Chickens",
+		"subscribers": 666633,
+		"description": "A place to post your chicken-related questions and media.",
+		"posts": [
+			{
+				"title": "He always tries to lie on top of the eggs, so we put ping pong balls in the egg carton.",
+				"author": "joeextreme",
+				"img": "https://i.redd.it/9pcjc67xo5ca1.jpg"
+			},
+			{
+				"title": "Is this Barred Rock a Rooster or Hen?",
+				"author": "catspajamas_550",
+				"img": "https://preview.redd.it/pij5yolfi8ca1.jpg?width=3024&format=pjpg&auto=webp&v=enabled&s=4130514482c781a4231fccbe36fcbf0311be8513"
+			},
+			{
+				"title": "Pics of my Chicken :)",
+				"author": "birdbrain90",
+				"img": "https://preview.redd.it/we5y35yqv4ca1.jpg?width=3072&format=pjpg&auto=webp&v=enabled&s=b4d00097a3d1a8a3a145c0f21bfd158652acdd33"
+			}
+		]
+	},
+	"mightyharvest": {
+		"name": "Mighty Harvest",
+		"subscribers": 9001,
+		"description": "Feeding many villages and village idiots for 10s of days.",
+		"posts": [
+			{
+				"title": "Making pumpkin soup for the entire town. Or possibly ending world hunger",
+				"author": "IndiaCee",
+				"img": "https://i.redd.it/817afo07g7ca1.jpg"
+			},
+			{
+				"title": "Behold the harvest that could feed earth twice",
+				"author": "samtheonlyone",
+				"img": "https://external-preview.redd.it/qr4Bof4NjtaBvNuJIPsTd22YUagwDZAB82j-0oO5Blk.jpg?auto=webp&v=enabled&s=c1a2163331cefac5cd3ca6240a1db15a366bf81b"
+			},
+			{
+				"title": "Enough for me and all my friends",
+				"author": "customerservice_",
+				"img": "https://i.redd.it/vkxybhdizaba1.jpg"
+			}
+		]
+	}
+}

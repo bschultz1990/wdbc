@@ -2142,3 +2142,25 @@ app.listen(3000, ()=> {
 START HERE: [Serving Static Files in Express]( https://expressjs.com/en/starter/static-files.html )
 
 Use `express.static(root, [options])` as **middleware** to serve static files on EVERY single request.
+### Using Bootstrap With Express
+File structure:
+```text
+public
+    css
+        bootstrap.min.css
+        
+    js
+        bootstrap.min.js
+        jquery.js
+```
+
+1. Download jquery from [ https://jquery.com/ ]( jquery.com )
+2. Download bootstrap from [ https://bootstrap.com ]( bootstrap.com )
+3. Load jquery before Bootstrap so it works:
+
+```html
+<!-- subreddit.ejs -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/js/jquery-3.6.3.min.js">
+<link rel="stylesheet" href="/js/bootstrap.min.css">
+```
