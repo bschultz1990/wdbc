@@ -1848,7 +1848,7 @@ console.log("Listening on port 3000.")
 ```
 
 home.ejs
-```ejs
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -1874,7 +1874,7 @@ process.cwd()
 # Something like '/Users/coltsteele/Code/Exercises/Express_Templating'
 ```
 
-```js
+```javascript
 // Make your app runnable anywhere!
 const path = require('path')
 // Take our current directory name and join that path to our /views directory.
@@ -1894,7 +1894,7 @@ It's souped up HTML. Learning the basic syntax to "fill in the blanks" like Mad 
 Best practice: Our templates should just display data. They should be as stupid as possible, pulling data from our index.js file as needed.
 
 Add these lines to your `index.js` file:
-```js
+```javascript
 // Add a new path. This page will display a random number from 1 to 10
 app.get('/random', (request,response) => {
     const num = Math.floor(Math.random()*10)+1;
@@ -1905,7 +1905,7 @@ app.get('/random', (request,response) => {
 ```
 
 New file! `random.ejs`
-```js
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1925,14 +1925,14 @@ New file! `random.ejs`
 Subreddit Template Demo
 
 Add these lines to your app.js:
-```js
+```javascript
 app.get('/r/:subreddit', (request,resolution) => {
     const {subreddit} = request.params
     resolve.render('subreddit', {subreddit});
 })
 ```
 
-```js
+```html
 // subreddit.ejs
 <body>
   <h1>Browsing the <%= subreddit %> subreddit.</h1>
@@ -1949,12 +1949,16 @@ Uses a new tag:
 - **<% %>**: `Scriptlet` tag, for control-flow, no output
 
 Example 1 - Simple logic using a ternary operator:
-```js
+```html
 <h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
 ```
+<head>
+    <meta charset = "UTF8">
+    <title>My Site</title>
+</head>
 
 Example 2 - Complex logic allowing for more markup and stuffs:
-```js
+```html
 // Don't forget to surround every line of embedded logic with your tag.
 <% if (num%2 === 0) { %>
 <h2>That's an even number!</h2>
@@ -1967,7 +1971,7 @@ We also use these braces a lot is in LOOPING!
 ## Loops in EJS
 
 Take some data and format each chunk using loops. :)
-```js
+```javascript
 // app.js
 app.get('/cats', (request,response) => {
     const cats = ['Pete', 'Callie', 'Rosebud', 'Whiskers', 'Pumpkin']
@@ -2164,3 +2168,41 @@ public
 <link rel="stylesheet" href="/js/jquery-3.6.3.min.js">
 <link rel="stylesheet" href="/js/bootstrap.min.css">
 ```
+
+## Partials and EJS
+**Partials**: Templates inside templates. TEMPLATECEPTION!!!
+
+Boo! No one likes pasting the same data twice! Here's a way to include parts of pages on ALL THE PAGES!!
+
+`<%-><%>` Outputs the unescaped HTML to the page.
+
+File structure:
+```txt
+   Partials
+    head.ejs
+```
+```html
+<!-- head.ejs -->
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <title><%= name %></title> -->
+	<link rel="stylesheet" href="/styles.css"
+</head>
+```
+
+```html
+<!-- other views.ejs -->
+<body>
+<!-- stuff here -->
+</body>
+```
+
+# Defining RESTful Routes
+- GET vs. POST Requests
+- Parsing the Request Body
+- Forms and Express
+- Method Override
+- Handling POST Requests in Express
+- RESTful Routing (optional standard to structure routing)
