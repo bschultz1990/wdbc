@@ -2206,3 +2206,42 @@ File structure:
 - Method Override
 - Handling POST Requests in Express
 - RESTful Routing (optional standard to structure routing)
+
+## GET vs. POST Requests
+
+- **GET Request**: Used to retrieve information. Data is sent via a query string. Information is plainly visible in the URL. Limited amount of data can be sent.
+- **POST Request**: Used to post data to the server. Used to write/create/update information. Data is sent via request body, not a query string visible in the URL. Can send any sort of data. (JSON!!)
+
+POST requests are usually more versatile than GET requests because they can send so many different data types.
+
+How do you route POST requests with Express? That's the next section.
+
+## Defining Express Post Routes
+Inside your app.js Express app, add the following lines:
+
+```javascript
+// App.use is a way to run some code or function
+// on every request. This is all you need! :)
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+```
+## Intro to REST
+**REpresentational State Transfers**
+A set of guidelines for how clients and servers should communicate.
+
+We're going to create APIs and routes that follow these guidelines.
+
+## RESTful Comments Project - Overview
+
+One way to make a REST-compliant routing is to do the following:
+
+1. Match different HTTP verbs (GET, POST, etc...) with a base pluralized URL (resource)
+2. Add an ID when appropriate
+
+- GET /comments - list all comments
+- POST /comments/ - Create a new comment
+- GET /comments/:id - Get one comment (using ID)
+- PATCH /comments/:id - Update one comment
+- DELETE /comments/:id - Delete one comment
+
+
