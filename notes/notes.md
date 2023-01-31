@@ -2244,4 +2244,12 @@ One way to make a REST-compliant routing is to do the following:
 - PATCH /comments/:id - Update one comment
 - DELETE /comments/:id - Delete one comment
 
+## Method-Override
+Using forms, we can only send GET and POST requests. However, we can trick the form into sending other types of requests using this `node` library.
+
+
+**Middleware:** method-override (http://expressjs.com/en/resources/middleware/method-override.html)
+Lets you use HTTP verbs such as PUT or DELETE in places where the client doesn’t support it.
+
+`npm install method-override`
 
