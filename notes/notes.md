@@ -2253,3 +2253,38 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 
 `npm install method-override`
 
+# Our First Database: MongoDB
+
+- Database Basics
+- SQL vs. NoSQL
+- Installation
+- The Mongo Shell
+- Mongo Inserts
+- Mongo Updates
+- Mongo Finding/Querying
+- Mongo Deletions
+
+The syntax is basically Javascript. However like any new tool we use, it's something that we have to try and understand by reading the documentation.
+
+## Introduction to Databases
+
+### Why Bother With a Database?
+- Databases can handle large amounts of data efficiently and store it compactly.
+- They provide tools for easy insertion, querying, and updating of data.
+- They generall offer security features and control over access to data.
+- They generally scale well.
+- Everyone is using one. We can't be left without one.
+
+## SQL vs. NoSQL Databases
+**SQL Databases:** Structured Query Language databases are relational databases. We pre-define a schema of tables before we insert anything.
+- Kind of like spreadsheets. You need to define a structure FIRST, then everything inside it MUST fall into that structure. We even capitalized the word MUST for extra clickbait. If you're reading this, you're part of the problem.
+
+**NoSQL Databases:** NoSQL databases do not use SQL. There are many types of these, including document, key-value, and graph stores.
+- These are newer and work in many different ways. No pre-defined schema is required.
+
+## Why We're Learning MongoDB
+- Mongo is very commonly used with Node and Express (MEAN and MERN stacks)
+- It's easy to get started with (though it can be tricky to truly master).
+- It plays well with JavaScript
+- Its popularity also means there is a strong community of developers using Mongo.
+

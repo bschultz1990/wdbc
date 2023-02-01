@@ -55,12 +55,17 @@ app.get('/comments/:id/edit', (request, response) => {
 	response.render('comments/edit', { comment });
 })
 
-
+// Add a delete path.
+app.delete('/comments/:id', (request, response) => {
+	const {id} = request.params;
+	comments = comments.filter(c => c.id !== id);
+	response.redirect('/comments');
+})
 
 
 
 // FAKE DATA
-const comments = [
+let comments = [
 	{
 		id: uuid(),
 		username: 'TheDarthVaderOfficial',
