@@ -2288,3 +2288,18 @@ The syntax is basically Javascript. However like any new tool we use, it's somet
 - It plays well with JavaScript
 - Its popularity also means there is a strong community of developers using Mongo.
 
+## Basic Mongo Commands
+**Create a Collection**: `db.[collection]`
+**Insert a Single Document**: `db.[collection].insert( [data_here] )` or `db.[collection].insert([{ObjectOne}, {ObjectTwo}...])`
+**Show All Collections**: `show collections`
+**Show All Collection Contents**: `db.[collection].find()`
+**Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
+**Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
+NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
+
+[Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
+- `$set:` Change a specific key to a value.
+
+**Update Many Documents**: `db.[collection].updateMany({key: value, key:value2...}, {$atomic_operator: {key: value, key:value2...}})`
+**Delete One Document**: `db.[collection].deleteOne({key: value})`
+**Delete All Documents in a Collection**: `db.[collection].deleteMany({})` CAREFUL WITH THIS ONE, BRO
