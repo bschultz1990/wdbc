@@ -2283,23 +2283,74 @@ The syntax is basically Javascript. However like any new tool we use, it's somet
 - These are newer and work in many different ways. No pre-defined schema is required.
 
 ## Why We're Learning MongoDB
-- Mongo is very commonly used with Node and Express (MEAN and MERN stacks)
+- Mongo is very commonly used with Node and Express
 - It's easy to get started with (though it can be tricky to truly master).
 - It plays well with JavaScript
 - Its popularity also means there is a strong community of developers using Mongo.
 
 ## Basic Mongo Commands
-**Create a Collection**: `db.[collection]`
-**Insert a Single Document**: `db.[collection].insert( [data_here] )` or `db.[collection].insert([{ObjectOne}, {ObjectTwo}...])`
-**Show All Collections**: `show collections`
-**Show All Collection Contents**: `db.[collection].find()`
-**Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
-**Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
+
+- **Create a Collection**: `db.[collection]`
+- **Insert a Single Document**: `db.[collection].insertOne( [data_here] )` or `db.[collection].insertOne([{ObjectOne}, {ObjectTwo}...])`
+- **Show All Collections**: `show collections`
+- **Show All Collection Contents**: `db.[collection].find()`
+- **Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
+- **Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
+
 NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
 
 [Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
 - `$set:` Change a specific key to a value.
+- `$unset:` Delete a specific key, value pair. (`{$unset: {catFriendly: ""}}`)
 
-**Update Many Documents**: `db.[collection].updateMany({key: value, key:value2...}, {$atomic_operator: {key: value, key:value2...}})`
-**Delete One Document**: `db.[collection].deleteOne({key: value})`
-**Delete All Documents in a Collection**: `db.[collection].deleteMany({})` CAREFUL WITH THIS ONE, BRO
+- **Update Many Documents**: `db.[collection].updateMany({key: value, key:value2...}, {$atomic_operator: {key: value, key:value2...}})`
+- **Delete One Document**: `db.[collection].deleteOne({key: value})`
+- **Delete All Documents in a Collection**: `db.[collection].deleteMany({})` CAREFUL WITH THIS ONE, BRO
+
+### More Operators
+
+Find all dogs in the database whose age is greater than 8:
+```js
+db.dogs.find({
+age: { $gt: 8 }
+})
+```
+- `$lt` less than
+- `$lte` less than or equal to
+- `$gte` greater than or equal to
+- `$ne` not equal to
+- `$nin` not in
+
+LOGIC: Use to combine operators.
+- `$and, $not, $nor, $or
+
+#### $in: Kind of Like 'OR'
+
+Find all dogs whose breed is either "Golden Retriever" or "Dachchund" AND whose age is less than 10:
+```
+db.dogs.find({
+    breed: {
+        $in: ['Golden Retriever', 'Dachchund']
+    },
+    age: {
+        $lt: 10
+    }
+})
+```
+
+Find all dogs whose personality is cat friendly OR whose age is less than or equal to 2:
+
+```
+db.dogs.find({
+		$or: [{
+		'personality.catFriendly': true
+		},
+		{
+age: {
+$lte: 2
+}
+}
+		]
+		})
+
+```
