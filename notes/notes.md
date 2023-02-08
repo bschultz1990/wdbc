@@ -2354,3 +2354,7 @@ $lte: 2
 		})
 
 ```
+**Clear the mongosh Shell:** <Ctrl-l>
+
+Still confused? Yeah, me too again. Refer to the video below for more info on updateMany, and deleteMany:
+[https://www.youtube.com/watch?v=QVmcJK-ZR3o](UpdateMany and deleteMany in mongoDB)
