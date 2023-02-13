@@ -2358,3 +2358,20 @@ $lte: 2
 
 Still confused? Yeah, me too again. Refer to the video below for more info on updateMany, and deleteMany:
 [https://www.youtube.com/watch?v=QVmcJK-ZR3o](UpdateMany and deleteMany in mongoDB)
+
+# Connecting to Mongo with Mongoose
+
+- Understanding the role of ORM/ODMs
+- Connecting Mongoose to Mongo
+- Defining a Model (Schema, etc...)
+- Mongoose CRUD (Create, Read, Update, Delete)
+- Schema Constraints
+- Moden Instance and Static Methods
+- Mongoose Middleware
+- Mongoose Virtuals
+
+##What is Mongoose? 
+Mongoose is an Object Data Mapper
+- ODM: A software that maps documents coming from a database into useable JavaScript objects.
+
+Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
