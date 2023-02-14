@@ -2370,8 +2370,151 @@ Still confused? Yeah, me too again. Refer to the video below for more info on up
 - Mongoose Middleware
 - Mongoose Virtuals
 
-##What is Mongoose? 
+## What is Mongoose? 
 Mongoose is an Object Data Mapper
 - ODM: A software that maps documents coming from a database into useable JavaScript objects.
 
 Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
+
+## .load index.js Bug!
+
+It seems like there is a potential bug occurring to people who are using the newest versions of Node.js when using the .load index.js command
+while requiring the mongoose module and executing the lecture code in the JS file. The bug when you enter the .load index.js command in the node
+shell manifests as what seems to be an infinite loop printing the const mongoose = require('mongoose'); line of code repeatedly.
+
+Instead of using .load index.js inside of the node shell, use the command:
+`node -i -e "$(< index.js)"` in the system terminal (outside of the node shell, just be sure that you first change directories into the folder containing the index.js file)
+— this will load the file and start the node shell with this one command instead, and then it should work. Be sure to type out the command exactly as shown above.
+
+## Our First Mongoose Model
+
+Mongoose documentation: https://mongoosejs.com/docs/guide.html
+
+Models are JS classes that we make with the assistance of Mongoose. These classes represent information in a collection inside a MongoDB database.
+
+**Schema** A mapping of different collection keys that define the TYPES of data allowed in your database.
+
+### Require Mongoose and Create your Connection String
+
+```javascript
+const mongoose = require('mongoose');
+const connectionString = 'mongodb+srv://bschultz1990:krfofrgrmfrt0-60-@wdbc.rrnu9ou.mongodb.net/?retryWrites=true&w=majority'
+```
+### Connect to Mongoose
+
+```javascript
+mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true})
+	.then(()=> {
+		console.log("Connection open!")
+	})
+	.catch(error => {
+		console.log(error)
+	})
+
+mongoose.connection.on("error", function(error) {
+	console.error(error);
+})
+```
+
+### Tell the User We're In!
+
+```javascript
+mongoose.connection.on("open", function () {
+		console.log("Connected to MongoDB database")
+})
+```
+
+### Create a New Schema Object
+
+```javascript
+// Create a schema object
+const movieSchema = new mongoose.Schema({
+title: String,
+year: Number,
+score: Number,
+rating: String,
+})
+```
+
+### Access the Schema
+
+```javascript
+// Access your schema using the Uppercase, SINGULAR version of your schema
+const Movie = mongoose.model('Movie', movieSchema)
+```
+
+### Create a New Object Based Off the Schema
+
+```javascript
+// Create a new object based on the schema.
+const amadeus = new Movie({
+	title: 'Amadeus',
+	year: 1986,
+	score: 9.2,
+	rating: 'R'
+})
+```
+
+### Save Your Data!
+
+```javascript
+// Save your data to the database
+// You can call this multiple times, most often after modifying any data in the object.
+amadeus.save()
+```
+
+## Insert Many With Mongoose
+
+IMPORTANT! This does NOT require you to .save() your object.
+
+
+
+```javascript
+// insertMany returns a promise. Use .then() to wait, then confirm it worked.
+Movie.insertMany([
+{ title: 'Amelie', year: 2001, score: 8.3, rating: 'R' },
+{ title: 'Robots', year: 2001, score: 9.2, rating: 'PG' },
+])
+.then(data => {
+	console.log("It worked!")
+	console.log(data);
+	})
+```
+## Finding with Mongoose
+
+
+### Side Note: Loading from the Node REPL
+
+You can load your javascript file directly from the Node REPL.
+
+1. In your terminal, navigate to your Node project.
+2. Type `node` to launch Node.
+3. Type `.load yourfile.js` to load your file.
+
+### Find
+
+Returns a promise as well. We have options when we wait.
+
+You can use callbacks, but you can also treat the results we get back LIKE a promise (It's a Mongoose Query). In that case, you can chain on a .then() like so:
+
+```javascript
+Movie.find({rating: 'PG'})
+.then(data => console.log(data))
+```
+
+### Find By ID With Mongoose
+
+These two methods do the same thing. Pick your favorite.
+
+Hint: Mine's the first one. ;)
+```javascript
+// findById()
+Movie.findById('id-here').then(data => console.log(data))
+
+// Find by ID
+Movie.find(_id: "new ObjectId("id-here")".then(data => console.log(data))
+```
+
+### Updating with Mongoose
+
+
