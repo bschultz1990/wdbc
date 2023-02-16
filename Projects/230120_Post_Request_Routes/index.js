@@ -62,6 +62,23 @@ app.delete('/comments/:id', (request, response) => {
 	response.redirect('/comments');
 })
 
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(methodOverride('_method'))
+app.set('views', path.join(__dirname, ''))
+app.set('view engine', 'ejs')
+
+// ROUTING
+app.get('/', (request,response)=>{
+	response.render('index')
+})
+
+app.listen (3000, ()=>{
+	console.log('Listening on Port 3000')
+})
 
 
 // FAKE DATA
@@ -88,6 +105,19 @@ let comments = [
 	}
 ]
 
+const express = require('express');
+const app = express();
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(methodOverride('_method'))
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+
+// ROUTING
+app.get('/', (request,response)=>{
+	response.render('index')
+})
 
 app.listen (3000, ()=>{
 	console.log('Listening on Port 3000')
