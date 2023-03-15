@@ -115,14 +115,14 @@ let roll = `You rolled a ${die1} and a ${die2}. They sum to ${die1 + die2}`;
 
 These will return True or False.
 
-    > Greater Than
-    > < Less Than
-    > = Greater than or equal to
-    > <= Less than or equal to
-    > == Equal to
-    > != Not equal
-    > === Strict equality. (Changes things to the same type, then compares them.)
-    > !== Strict non-equality. (Checks for equality of value and type.)
+> Greater Than
+> < Less Than
+> = Greater than or equal to
+> <= Less than or equal to
+> == Equal to
+> != Not equal
+> === Strict equality. (Changes things to the same type, then compares them.)
+> !== Strict non-equality. (Checks for equality of value and type.)
 
 ## Console Logging Methods
 
@@ -154,20 +154,20 @@ A live test of typing!
 ```js
 // CONDITIONALS. IF STATEMENT.
 if (true) {
-    // Do something here.
+// Do something here.
 }
 
 if (true) {
-    // Do something here.
+// Do something here.
 } else if (true) {
-    // Do something else here.
+// Do something else here.
 }
 
 // ELSE STATEMENT.
 if (true) {
-    // Do something
+// Do something
 } else {
-    // Do something else if NONE of the above IFs are true. Catch-all.
+// Do something else if NONE of the above IFs are true. Catch-all.
 }
 ```
 
@@ -184,12 +184,12 @@ this ! other_thing  // NOT
 ```js
 const day = 2;
 switch (day) {
-    case 1:
-        console.log(`Hello!`);
-        break;
-    case 2:
-        console.log(`Case 2!`);
-        break;
+case 1:
+console.log(`Hello!`);
+break;
+case 2:
+console.log(`Case 2!`);
+break;
 }
 ```
 
@@ -277,7 +277,7 @@ numbers.filter((n) => n % 2 == 0); // Return all even numbers.
 // Accepts an array of strings as an imput and returns an array of
 // those strings that are less than 10 characters long.
 function validUserNames(usernames) {
-    return usernames.filter((i) => i.length < 10);
+return usernames.filter((i) => i.length < 10);
 }
 ```
 
@@ -287,18 +287,18 @@ Const with arrays cares about the memory rerence, not the array contents. How to
 
 ```js
 const ticTacToe = [
-    ["X", "X", "X"],
-    ["O", null, "O"],
-    ["X", "X", "X"],
+["X", "X", "X"],
+["O", null, "O"],
+["X", "X", "X"],
 ];
 
 ticTacToe[1][1]; // null.
 ticTacToe[1][1] = "x"; // x
 
 const ticTacToe = [
-    ["X", "X", "X"],
-    ["O", "x", "O"],
-    ["X", "X", "X"],
+["X", "X", "X"],
+["O", "x", "O"],
+["X", "X", "X"],
 ];
 ```
 
@@ -316,14 +316,14 @@ discordRanks["rank2"] = "Anything Else";
 
 // ITERATING OVER OBJECTS
 const robots = {
-    bot1: "Jeffrey",
-    bot2: "Billy",
-    bot3: "Samwise",
-    bot4: "Marshall",
+bot1: "Jeffrey",
+bot2: "Billy",
+bot3: "Samwise",
+bot4: "Marshall",
 };
 
 for (let name in robots) {
-    console.log(robots[name]);
+console.log(robots[name]);
 }
 ```
 
@@ -331,33 +331,33 @@ for (let name in robots) {
 
 ```js
 const spaceship = {
-    telescope: {
-        yearBuilt: 2018,
-        model: "91031-XLT",
-        focalLength: 2032,
-    },
-    crew: {
-        captain: {
-            name: "Sandra",
-            degree: "Computer Engineering",
-            encourageTeam() {
-                console.log("We got this!");
-            },
-        },
-    },
-    engine: {
-        model: "Nimbus2000",
-    },
-    nanoelectronics: {
-        computer: {
-            terabytes: 100,
-            monitors: "HD",
-        },
-        "back-up": {
-            battery: "Lithium",
-            terabytes: 50,
-        },
-    },
+telescope: {
+yearBuilt: 2018,
+model: "91031-XLT",
+focalLength: 2032,
+},
+crew: {
+captain: {
+name: "Sandra",
+degree: "Computer Engineering",
+encourageTeam() {
+console.log("We got this!");
+},
+},
+},
+engine: {
+model: "Nimbus2000",
+},
+nanoelectronics: {
+computer: {
+terabytes: 100,
+monitors: "HD",
+},
+"back-up": {
+battery: "Lithium",
+terabytes: 50,
+},
+},
 };
 ```
 
@@ -368,10 +368,10 @@ const spaceship = {
 ```js
 for ([initial expression], [condition], [increment expression])
 for (let i = 0; i <=10; i++) {
-	console.log(`${i}`)
+console.log(`${i}`)
 }
 for (let i = 0; i <=10; i++) {
-	console.log(i)
+console.log(i)
 }
 ```
 
@@ -380,8 +380,8 @@ for (let i = 0; i <=10; i++) {
 ```js
 let i = 0;
 while (i <= 10) {
-    i += 1;
-    console.log(i);
+i += 1;
+console.log(i);
 }
 ```
 
@@ -390,7 +390,7 @@ while (i <= 10) {
 ```js
 const robots = [`Jeffrey`, `Billy`, `Samwise`, `Marshall`];
 for (let num of robots) {
-    console.log(num.toUpperCase());
+console.log(num.toUpperCase());
 }
 // JEFFREY, BILLY, SAMWISE, MARSHALL
 ```
@@ -400,7 +400,7 @@ Or...
 ```js
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 for (let square of numbers) {
-    console.log(square);
+console.log(square);
 }
 ```
 
@@ -425,9 +425,9 @@ Functions can be called as the variables they're inside.
 
 ```js
 function makeBetweenFunc(min, max) {
-    return function (num) {
-        return num >= min && num <= max;
-    };
+return function (num) {
+return num >= min && num <= max;
+};
 }
 // Create functions based off the one above to tell if a number is between two numbers or not.
 const isChild = makeBetweenFunc(0, 18); // isChild(2) returns TRUE
@@ -440,12 +440,12 @@ const isSenior = makeBetweenFunc(65, 120); // isSenior(100) returns TRUE
 ```js
 // FUNCTION EXPRESSIONS
 function robots(bot1, bot2, bot3, bot4) {
-    console.log(bot1, bot2, bot3, bot4);
+console.log(bot1, bot2, bot3, bot4);
 }
 
 // is EXACTLY THE SAME AS...
 let robots = function (bot1, bot2, bot3, bot4) {
-    console.log(bot1, bot2, bot3, bot4);
+console.log(bot1, bot2, bot3, bot4);
 };
 ```
 
@@ -456,13 +456,13 @@ Another way to write in-line functions.
 ```js
 // Traditional Anonymous Function:
 function (a) {
-	return a + 100;
+return a + 100;
 }
 
 // Arrow Function Break Down:
 // 1. Remove the word "function" and place arrow between the argument and opening body bracket
 (a) => {
-	return a + 100;
+return a + 100;
 }
 
 // 2. Remove the body braces and word "return" -- the return is implied.
@@ -474,7 +474,7 @@ a => a + 100;
 
 // This:
 const sciNames = birds.map(function (b) {
-	return b.Sci;
+return b.Sci;
 });
 
 // Can be written as:
@@ -497,28 +497,28 @@ let intervalID = setInterval(func, [delay, arg1, arg2, ...]);
 
 ```js
 const math = {
-    multiply: function (x, y) {
-        return x * y;
-    },
-    divide: function (x, y) {
-        return x / y;
-    },
-    square: function (x) {
-        return x ** 2;
-    },
+multiply: function (x, y) {
+return x * y;
+},
+divide: function (x, y) {
+return x / y;
+},
+square: function (x) {
+return x ** 2;
+},
 };
 
 // Or, try this shorthand method, haha:
 const math = {
-    add(x, y) {
-        return x + y;
-    },
-    divide(x, y) {
-        return x / y;
-    },
-    square(x) {
-        return x ** 2;
-    },
+add(x, y) {
+return x + y;
+},
+divide(x, y) {
+return x / y;
+},
+square(x) {
+return x ** 2;
+},
 };
 ```
 
@@ -529,25 +529,25 @@ These two methods will return the same string:
 ```js
 // METHOD 1:
 const cat = {
-    name: "Pete",
-    color: "Blue",
-    instrument: "Electric Guitar",
-    hobby: "Skateboarding",
-    intro() {
-        console.log(`Hi! My name is ${this.name}! I am the color ${this.color}. I play the ${this.instrument} and my favorite hobby is ${cat.hobby}.`);
-    },
+name: "Pete",
+color: "Blue",
+instrument: "Electric Guitar",
+hobby: "Skateboarding",
+intro() {
+console.log(`Hi! My name is ${this.name}! I am the color ${this.color}. I play the ${this.instrument} and my favorite hobby is ${cat.hobby}.`);
+},
 };
 cat.intro(); // Hi! My name is Pete! I am the color Blue. I play the Electric Guitar and my favorite hobby is Skateboarding.
 
 // METHOD 2:
 const cat = {
-    name: "Pete",
-    color: "Blue",
-    instrument: "Electric Guitar",
-    hobby: "Skateboarding",
-    intro() {
-        console.log(`Hi! My name is ${cat.name}! I am the color ${cat.color}. I play the ${cat.instrument} and my favorite hobby is ${cat.hobby}.`);
-    },
+name: "Pete",
+color: "Blue",
+instrument: "Electric Guitar",
+hobby: "Skateboarding",
+intro() {
+console.log(`Hi! My name is ${cat.name}! I am the color ${cat.color}. I play the ${cat.instrument} and my favorite hobby is ${cat.hobby}.`);
+},
 };
 cat.intro(); // Hi! My name is Pete! I am the color Blue. I play the Electric Guitar and my favorite hobby is Skateboarding.
 ```
@@ -556,12 +556,12 @@ THIS.eggCount++ updates the eggCount property, which is a level higher (outside)
 
 ```js
 const hen = {
-    name: `Helen`,
-    eggCount: 0,
-    layAnEgg() {
-        this.eggCount++;
-        return "EGG";
-    },
+name: `Helen`,
+eggCount: 0,
+layAnEgg() {
+this.eggCount++;
+return "EGG";
+},
 };
 ```
 
@@ -574,9 +574,9 @@ hello.toUpperCase(); // UNCAUGHT reference error!
 
 // Same function, just wrapped in a try/catch sequence.
 try {
-    hello.toUpperCase();
+hello.toUpperCase();
 } catch {
-    console.log("Errrrror.");
+console.log("Errrrror.");
 }
 ```
 
@@ -595,9 +595,9 @@ Function required to be passed into them
 ```js
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 numbers.forEach(function (i)) {
-	if (i % 2) {
-		console.log(i) // print even numbers
-	}
+if (i % 2) {
+console.log(i) // print even numbers
+}
 }
 ```
 
@@ -608,20 +608,20 @@ Executes a function on each element of an array, returning an array of its own.
 ```js
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // double every number, using MAP
 const doubles = numbers.map(function (num) {
-    return num * 2;
+return num * 2;
 });
 
 const fullNames = [
-    { first: "Albus", last: "Dumbledore" },
-    { first: "Harry", last: "Potter" },
-    { first: "Hermione", last: "Granger" },
-    { first: "Ron", last: "Weasley" },
-    { first: "Rubeus", last: "Hagrid" },
-    { first: "Minerva", last: "McGonagall" },
-    { first: "Severus", last: "Snape" },
+{ first: "Albus", last: "Dumbledore" },
+{ first: "Harry", last: "Potter" },
+{ first: "Hermione", last: "Granger" },
+{ first: "Ron", last: "Weasley" },
+{ first: "Rubeus", last: "Hagrid" },
+{ first: "Minerva", last: "McGonagall" },
+{ first: "Severus", last: "Snape" },
 ];
 const firstNames = fullNames.map(function (i) {
-    return i.first;
+return i.first;
 });
 // Array(7) [ "Albus", "Harry", "Hermione", "Ron", "Rubeus", "Minerva", "Severus" ]
 ```
@@ -630,35 +630,35 @@ This is an array of objects:
 
 ```js
 const birds = [
-    {
-        Name: "Peregrine Falcon",
-        Sci: "Falco Peregrinus",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Gyrfalcon",
-        Sci: "Falco Rusticolus",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Chestnut-Collared Swift",
-        Sci: "Streptoprocne rutila",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Burrowing Owl",
-        Sci: "Athene Cunicularia",
-        Status: "Least Concern",
-    },
+{
+Name: "Peregrine Falcon",
+Sci: "Falco Peregrinus",
+Status: "Least Concern",
+},
+{
+Name: "Gyrfalcon",
+Sci: "Falco Rusticolus",
+Status: "Least Concern",
+},
+{
+Name: "Chestnut-Collared Swift",
+Sci: "Streptoprocne rutila",
+Status: "Least Concern",
+},
+{
+Name: "Burrowing Owl",
+Sci: "Athene Cunicularia",
+Status: "Least Concern",
+},
 ];
 
 function birdStats(birds) {
-    const sciNames = birds.map((b) => b.Sci);
-    console.log(sciNames);
+const sciNames = birds.map((b) => b.Sci);
+console.log(sciNames);
 }
 
 birds.map(({ Name, Sci }) => {
-    return `Name: ${Name}. Scientific Name: ${Sci}.`;
+return `Name: ${Name}. Scientific Name: ${Sci}.`;
 });
 // [ "Falco Peregrinus", "Falco Rusticolus", "Streptoprocne rutila", "Athene Cunicularia" ]
 ```
@@ -684,7 +684,7 @@ exams.some((score) => score >= 75);
 
 // This returns true if all numbers in the array numbers are even.
 function allEvens(numbers) {
-    return numbers.every((i) => i % 2 == 0);
+return numbers.every((i) => i % 2 == 0);
 }
 ```
 
@@ -703,7 +703,7 @@ let sumtotal = rollArray.reduce((total, i) => total + i);
 ```js
 // Defaults to rolling 1d6 if you don't pass anything in.
 function rollDie(numSides = 6) {
-    return Math.floor(Math.random() * numSides) + 1;
+return Math.floor(Math.random() * numSides) + 1;
 }
 ```
 
@@ -749,15 +749,15 @@ const catDog = { ...feline, ...canine };
 // This overwrites the key/value pairs with the newest ones when they're the same with each object.
 
 const formData = {
-    email: "blueman@gmail.com",
-    username: "bschultz1990",
-    password: "ASDFasdf3456",
+email: "blueman@gmail.com",
+username: "bschultz1990",
+password: "ASDFasdf3456",
 };
 
 const newUser = {
-    ...formData,
-    id: 2345,
-    isAdmin: false,
+...formData,
+id: 2345,
+isAdmin: false,
 };
 
 console.log(newUser);
@@ -772,9 +772,9 @@ If `...` is used as an ARGUMENT in a FUNCTION, it's a REST parameter.
 
 ```js
 function sum(...theArgs) {
-    return theArgs.reduce((previous, current) => {
-        return previous + current;
-    });
+return theArgs.reduce((previous, current) => {
+return previous + current;
+});
 }
 ```
 
@@ -799,13 +799,13 @@ Order matters not. Judge me by my organization, do you?
 
 ```js
 const boomingBlade = {
-    Title: "Booming Blade",
-    School: "Evocation",
-    Casting_Time: "1 action",
-    Range: "5 feet",
-    Components: "V,M",
-    Duration: "1 round",
-    Materials: "A weapon",
+Title: "Booming Blade",
+School: "Evocation",
+Casting_Time: "1 action",
+Range: "5 feet",
+Components: "V,M",
+Duration: "1 round",
+Materials: "A weapon",
 };
 const { Casting_Time, Duration, Materials, Description } = boomingBlade;
 // Casting_Time "1 Action"
@@ -820,30 +820,30 @@ You can do this on the "way in" to a function.
 
 ```js
 const birds = [
-    {
-        Name: "Peregrine Falcon",
-        Sci: "Falco Peregrinus",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Gyrfalcon",
-        Sci: "Falco Rusticolus",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Chestnut-Collared Swift",
-        Sci: "Streptoprocne rutila",
-        Status: "Least Concern",
-    },
-    {
-        Name: "Burrowing Owl",
-        Sci: "Athene Cunicularia",
-        Status: "Least Concern",
-    },
+{
+Name: "Peregrine Falcon",
+Sci: "Falco Peregrinus",
+Status: "Least Concern",
+},
+{
+Name: "Gyrfalcon",
+Sci: "Falco Rusticolus",
+Status: "Least Concern",
+},
+{
+Name: "Chestnut-Collared Swift",
+Sci: "Streptoprocne rutila",
+Status: "Least Concern",
+},
+{
+Name: "Burrowing Owl",
+Sci: "Athene Cunicularia",
+Status: "Least Concern",
+},
 ];
 
 birds.map(({ Name, Sci }) => {
-    return `Name: ${Name}. Scientific Name: ${Sci}.`;
+return `Name: ${Name}. Scientific Name: ${Sci}.`;
 }); // "Name: Peregrine Falcon. Scientific Name: Falco Peregrinus", etc...
 ```
 
@@ -876,7 +876,7 @@ Another example:
 // Replace every link text with "I AM A LINK."
 const allLinks = document.querySelectorAll("a");
 for (const link of allLinks) {
-    link.innerText = "I AM A LINK";
+link.innerText = "I AM A LINK";
 }
 ```
 
@@ -976,12 +976,12 @@ Runs code when a user does something.
 ```js
 const button = document.querySelector("#exampleElement");
 button.addEventListener("click", function () {
-    alert("Clicked");
+alert("Clicked");
 });
 
 //OR
 function clickMe() {
-    alert("Clicked");
+alert("Clicked");
 }
 button.addEventListener("click", clickMe);
 ```
@@ -993,19 +993,19 @@ When you have it inside a callback that is invoked inside a function, "This will
 ```js
 const keyInput = document.querySelector("input"); // refers to a generic input element from HTML.
 input.addEventListener("keydown", function () {
-    console.log("KEY DOWN");
+console.log("KEY DOWN");
 });
 
 input.addEventListener("keydown", function (e) {
-    // references the Event object.
-    console.log(e);
+// references the Event object.
+console.log(e);
 });
 
 e.key; // The end result. Output of this depends on the language the user is using.
 e.code; // The physical location (index) of the key.
 
 input.addEventListener("keyup", function () {
-    console.log("KEY UP");
+console.log("KEY UP");
 });
 ```
 
@@ -1020,9 +1020,9 @@ const form = document.querySelector("#yourForm");
 const input = document.querySelector("#yourFormInput"); // Stuff you type.
 const list = document.querySelector("#yourFormList");
 form.addeventListener("submit", function (e) {
-    e.preventDefault(); // Don't change the page. Woo!
-    console.log("submitted");
-    console.log(input.value); // Log the stuff you type.
+e.preventDefault(); // Don't change the page. Woo!
+console.log("submitted");
+console.log(input.value); // Log the stuff you type.
 });
 ```
 
@@ -1040,7 +1040,7 @@ element.addEventListener("change"); // Fires ONCE when you blur (leave) an input
 element.addEventListener("input"); // Fires EVERY TIME you blur (leave) an input.
 
 anyelement.addEventListener("input", function (e) {
-    h1.innerText = `Welcome, ${anyelement.value}`; // Update an h1 element as a live preview while you type.
+h1.innerText = `Welcome, ${anyelement.value}`; // Update an h1 element as a live preview while you type.
 });
 ```
 
@@ -1050,7 +1050,7 @@ What happens when you trigger events that are nested inside other events? All of
 
 ```js
 anyelement.addEventListener("input", function (e) {
-    e.stopPropagation(); // <-- Here's how to prevent that
+e.stopPropagation(); // <-- Here's how to prevent that
 });
 ```
 
@@ -1060,7 +1060,7 @@ Adding an event listener to a parent object instead of the object itself. Handy 
 
 ```js
 const list = document.querySelectorAll("ul" function (e){
-	e.target.remove(); // <-- Event listener target holds what you clicked on in the parent element.
+e.target.remove(); // <-- Event listener target holds what you clicked on in the parent element.
 })
 ```
 
@@ -1079,19 +1079,19 @@ const randomWordAPI = 'https://random-word-api.herokuapp.com/word?number=1&swear
 const promise = fetch(randomWordAPI).then(gotData).catch(gotErr);
 
 function gotData(data) {
-    console.log(data);
+console.log(data);
 }
 
 function gotErr(err) {
-  console.log(err);
+console.log(err);
 }
 
 // Can be condensed into...
 let randWord = 'https://random-word-api.herokuapp.com/word?number=1&swear=0'
 fetch(randWord){
-  .then(response => response.json())
-  .then(data) => console.log(data)
-  .catch(err) => console.log(err);
+.then(response => response.json())
+.then(data) => console.log(data)
+.catch(err) => console.log(err);
 }
 ```
 
@@ -1099,17 +1099,17 @@ fetch(randWord){
 
 ```js
 const delayedColorChange = (color, delay) => {
-    return new Promise(function (resolve, reject) {
-        setTimeout(() => {
-            document.body.style.backgroundColor = color;
-            resolve();
-        });
-    }, delay);
+return new Promise(function (resolve, reject) {
+setTimeout(() => {
+document.body.style.backgroundColor = color;
+resolve();
+});
+}, delay);
 };
 
 deyaledColorChange("red", 1000)
-    .then(() => delayedColorChange("orange", 1000))
-    .then(() => delayedColorChange("yellow", 1000));
+.then(() => delayedColorChange("orange", 1000))
+.then(() => delayedColorChange("yellow", 1000));
 ```
 
 ## AJAX and APIs
@@ -1121,14 +1121,14 @@ Making requests via JavaScript
 -   **Web APIs:** Web Application Programming Interface. Requesting JSON, not HTML pages. Exposes certain endpoints that respond with bare-bones information for software to use.
 -   **JSON:** A format for sending raw data. Superceded XML
 
-JSON Example:
+    JSON Example:
 
-```json
-{
+    ```json
+    {
     "squadName": "Super Hero Squad",
     "homeTown": "Metro City"
-}
-```
+    }
+    ```
 
 ### JSON.parse
 
@@ -1177,49 +1177,49 @@ Example: `https://duckduckgo.com/?q=fennec+fox&t=h_&ia=web`
 -   Return the JSON out of Fetch.
 -   Display the data you fetched.
 
-```js
-fetch("https://swapi.dev/api/people/1/")
+    ```js
+    fetch("https://swapi.dev/api/people/1/")
     .then((resolve) => {
-        console.log("RESOLVED!", resolve);
-        return resolve.json();
+    console.log("RESOLVED!", resolve);
+    return resolve.json();
     })
     .then((data) => {
-        console.log("JSON DONE", data);
+    console.log("JSON DONE", data);
     })
     .catch((error) => {
-        console.log("ERROR!", error);
+    console.log("ERROR!", error);
     });
-```
+    ```
 
-Method 2:
+    Method 2:
 
 -   Make this into an ASYNC function.
 
-```js
-const starWarsAsync = async () => {
+    ```js
+    const starWarsAsync = async () => {
     const resolve = await fetch("https://swapi.dev/api/people/1/");
     const data = await resolve.json();
     console.log(data);
-};
-```
+    };
+    ```
 
-Method 2.5:
+    Method 2.5:
 
 -   Wrap this function in a TRY/CATCH:
 
-```js
-try {
-	const starWarsAsync = async () => {
-		const resolve = await fetch("https://swapi.dev/api/people/1/");
-		const data = await resolve.json();
-		console.log(data);
-	} catch (error) {
-		console.log("Error encountered.", error);
-	}
-};
-```
+    ```js
+    try {
+    const starWarsAsync = async () => {
+    const resolve = await fetch("https://swapi.dev/api/people/1/");
+    const data = await resolve.json();
+    console.log(data);
+    } catch (error) {
+    console.log("Error encountered.", error);
+    }
+    };
+    ```
 
-Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
+    Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
 
 ## AXIOS
 
@@ -1235,11 +1235,11 @@ Example with Star Wars API:
 
 ```js
 try {
-    const getSWPerson = async () => {
-        const res = await axios.get("https://swapi.dev/api/people/1");
-    };
+const getSWPerson = async () => {
+const res = await axios.get("https://swapi.dev/api/people/1");
+};
 } catch (error) {
-    console.log("Error:", error);
+console.log("Error:", error);
 }
 ```
 
@@ -1249,9 +1249,9 @@ Ways to sift through the extra HTML and get to your JSON data. Some APIS will de
 
 ```js
 const getJoke = async () => {
-    const config = { headers: { Accept: `application/json` } }; // THIS WILL VARY BETWEEN APIS. READ THE DOCS.
-    const res = await axios.get(`https://icanhazdadjoke.com/`);
-    console.log(res.data.joke);
+const config = { headers: { Accept: `application/json` } }; // THIS WILL VARY BETWEEN APIS. READ THE DOCS.
+const res = await axios.get(`https://icanhazdadjoke.com/`);
+console.log(res.data.joke);
 };
 ```
 
@@ -1260,10 +1260,10 @@ const getJoke = async () => {
 Modular functions to be assembled at operation. Go from these:
 ```js
 function hex(r,g,b) {
-    return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
+return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
 }
 function rgb (r,g,b) {
-    return 'rgb(${r}, ${g}, ${b})';
+return 'rgb(${r}, ${g}, ${b})';
 }
 ```
 
@@ -1272,18 +1272,18 @@ To THIS: :grin:
 ```js
 function makeColor (r,g,b) {
 const color = {};
-    color.r = r;
-    color.g = g;
-    color.b = b;
+color.r = r;
+color.g = g;
+color.b = b;
 
-    color.rgb = function() {
-        const {r,g,b} = this;
-        return 'rgb(${r}, ${g}, ${b})';
-    }
-    color.hex = function (){
-        return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
-    }
-    return color
+color.rgb = function() {
+const {r,g,b} = this;
+return 'rgb(${r}, ${g}, ${b})';
+}
+color.hex = function (){
+return '#' + ((1<<24) + (r<<16) + (g<<8) + b).toString(16).slice(1);
+}
+return color
 }
 ```
 HOWEVER, cool as this is, this isn't the most popular way. A better one is ahead... :)
@@ -1301,21 +1301,21 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new
 // Returns THIS if the function doesn't return its own object.
 
 function Color(r,g,b) {
-    this.r=r;
-    this.g=g;
-    this.b=b;
-    console.log(this)
+this.r=r;
+this.g=g;
+this.b=b;
+console.log(this)
 }
 
 // Define 
 Color.prototype.rgb = function(){
-    const {r,g,b} = this;
-    return 'rgb(${r}, ${g}, ${b})';
+const {r,g,b} = this;
+return 'rgb(${r}, ${g}, ${b})';
 }
 
 Color.prototype.rgba = function(a=1.0) {
-    const {r,g,b,a} = this;
-    return 'rgb(${r}, ${g}, ${b}, ${a})';
+const {r,g,b,a} = this;
+return 'rgb(${r}, ${g}, ${b}, ${a})';
 }
 
 // Assign me like this:
@@ -1332,23 +1332,23 @@ But WAIT! There's an even better way that's not so messy using the Class syntax.
 ```js
 // Define a class. What does it mean to be a color...?
 class Color {
-    // This executes immediately whenever a NEW Color is created.
-    // Add these as properties on the object returned:
-    constructor (r,g,b, name) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
-        this.colorName = name;
-    }
-    rgb(){
-        // Destructure the rgb object to THIS.
-        const {r,g,b} = this;
-        return 'rgb(${r}, ${g}, ${b})';
-    }
-    rgba(){
-        const {r,g,b,a} = this;
-        return 'rgb(${r}, ${g}, ${b}, ${a})';
-    }
+// This executes immediately whenever a NEW Color is created.
+// Add these as properties on the object returned:
+constructor (r,g,b, name) {
+this.r = r;
+this.g = g;
+this.b = b;
+this.colorName = name;
+}
+rgb(){
+// Destructure the rgb object to THIS.
+const {r,g,b} = this;
+return 'rgb(${r}, ${g}, ${b})';
+}
+rgba(){
+const {r,g,b,a} = this;
+return 'rgb(${r}, ${g}, ${b}, ${a})';
+}
 }
 
 const color1 = new Color(255,67,89, 'tomato');
@@ -1366,56 +1366,56 @@ To avoid re-using functionality, take this:
 
 ```js
 class Cat {
-    constructor(name,age){
-        this.name = name;
-        this.age = age;
-    }
-    eat(){
-        return `${this.name} is eating.`;
-    }
-    meow(){
-        return `MEOWWW!!`
-    }
+constructor(name,age){
+this.name = name;
+this.age = age;
+}
+eat(){
+return `${this.name} is eating.`;
+}
+meow(){
+return `MEOWWW!!`
+}
 }
 
 class Dog {
-    constructor(name,age){
-        this.name = name;
-        this.age = age;
-    }
-    eat(){
-        return `${this.name} is eating.`;
-    }
-    bark(){
-        return `BJORK.`
-    }
+constructor(name,age){
+this.name = name;
+this.age = age;
+}
+eat(){
+return `${this.name} is eating.`;
+}
+bark(){
+return `BJORK.`
+}
 }
 ```
 To the next level:
 ```js
 // Separate duplicate functionality to its own Class:
 class Pet {
-    constructor(name,age) {
-        this.name = name;
-        this.age = age;
-    }
-    eat() {
-        return `${this.name} is eating.`;
-    }
+constructor(name,age) {
+this.name = name;
+this.age = age;
+}
+eat() {
+return `${this.name} is eating.`;
+}
 }
 
 // Reintroduce your unique classes but have them
 // EXTEND the Pet class above:
 class Dog extends Pet {
-    bark() {
-        return `BJORK.`
-    }
+bark() {
+return `BJORK.`
+}
 }
 
 class Cat extends Pet {
-    meow() {
-        return `MEOWWW!!`;
-    }
+meow() {
+return `MEOWWW!!`;
+}
 }
 
 // Use me like this. Will fall back to the parent Pet Class
@@ -1432,40 +1432,40 @@ References the "Super" Class - (in this case, the Pet Class.)
 Take this:
 ```js
 class Pet {
-    constructor(name,age) {
-        this.name = name;
-        this.age = age;
-    }
-    eat() {
-        return `${this.name} is eating.`;
-    }
+constructor(name,age) {
+this.name = name;
+this.age = age;
+}
+eat() {
+return `${this.name} is eating.`;
+}
 }
 // I want to add unique constructor stuff:
 class Cat extends Pet {
-    constructor(name, age, livesLeft = 9){
-        this.name = name;
-        this.age = age;
-        this.livesLeft = livesLeft; // NEW INFO
-    }
+constructor(name, age, livesLeft = 9){
+this.name = name;
+this.age = age;
+this.livesLeft = livesLeft; // NEW INFO
+}
 }
 ```
 To a condensed version like this:
 ```js
 class Pet {
-    constructor(name,age) {
-        this.name = name;
-        this.age = age;
-    }
-    eat() {
-        return `${this.name} is eating.`;
-    }
+constructor(name,age) {
+this.name = name;
+this.age = age;
+}
+eat() {
+return `${this.name} is eating.`;
+}
 }
 // Remove the duplication and add a reference to the super (Pet) class.
 class Cat extends Pet {
-    constructor(name, age, livesLeft = 9){
-        super(name,age); // References and extends the super (Pet) class.
-        this.livesLeft = livesLeft;
-    }
+constructor(name, age, livesLeft = 9){
+super(name,age); // References and extends the super (Pet) class.
+this.livesLeft = livesLeft;
+}
 }
 
 ```
@@ -1525,7 +1525,7 @@ What can you do with Node?
 - Native Apps (VS Code is a Node app!!)
 - Video Games, etc...
 
-Node is everywhere...
+    Node is everywhere...
 - NASA
 - Netflix
 - VS Code
@@ -1542,16 +1542,16 @@ STUFF YOU WON'T HAVE HERE:
 - window
 - any subsequent DOM elements
 
-So, where is your global object?
+    So, where is your global object?
 - global :grin:
 
-STUFF YOU HAVE INSTEAD:
+    STUFF YOU HAVE INSTEAD:
 - Operating system modules for files and folders, etc...
 
-To run a .js file from Node, type:
-```
-node yourfile.js
-```
+    To run a .js file from Node, type:
+    ```
+    node yourfile.js
+    ```
 
 ### Process and Argv
 ***process*** Provides information about and control over the current Node.js process. It's always available to Node.js applications without using require().
@@ -1574,22 +1574,22 @@ Let's make a Node script that creates the following files/folders in the followi
     - index.html
     - styles.css
     - app.js
-```
-```js
-const fs = require('fs'); // Import the fs module
+    ```
+    ```js
+    const fs = require('fs'); // Import the fs module
 
-// Store your own argument as a variable.
-const folderName = process.argv[2] || 'NewFolder'
+    // Store your own argument as a variable.
+    const folderName = process.argv[2] || 'NewFolder'
 
-// make a new folder
-fs.mkdirSync(folderName);
-console.log(`Created project folder: ${folderName}`);
+    // make a new folder
+    fs.mkdirSync(folderName);
+    console.log(`Created project folder: ${folderName}`);
 
-// Make folder contents inside new folder:
-fs.writeFileSync(`${folderName}/index.html`, '');
-fs.writeFileSync(`${folderName}/styles.css`, '');
-fs.writeFileSync(`${folderName}/app.js`, '');
-```
+    // Make folder contents inside new folder:
+    fs.writeFileSync(`${folderName}/index.html`, '');
+    fs.writeFileSync(`${folderName}/styles.css`, '');
+    fs.writeFileSync(`${folderName}/app.js`, '');
+    ```
 ## Modules and NPM
 - Module.Exports
 - Requiring Modules
@@ -1671,35 +1671,35 @@ Express is a web development framework that helps servers get up and running wit
 - Figure out what the user is asking for
 - Crafts an http response and associated content
 
-**Library:** Something that's integrated into your code at any point. You decide when and how to incorporate it into your code.
+    **Library:** Something that's integrated into your code at any point. You decide when and how to incorporate it into your code.
 
-**Framework:** Provides the structure for an application and you follow the framework's rules.
+    **Framework:** Provides the structure for an application and you follow the framework's rules.
 
-Navigate to the directory you'd like your project, then:
-```bash
-cd Project/directory
-npm init -y
-npm install express
-```
+    Navigate to the directory you'd like your project, then:
+    ```bash
+    cd Project/directory
+    npm init -y
+    npm install express
+    ```
 
-Inside your app.js:
-```js
-const express = require('express');
-const app = express()
+    Inside your app.js:
+    ```js
+    const express = require('express');
+    const app = express()
 
-// Trigger this every time a request is made. Then, respond with content!
-// response.send() sends an HTTP response via JSON.
-app.use((request,response)=> {
-	console.log("Request received!")
-	response.send('<h1>This is a h1 header!</h1>')
-})
+    // Trigger this every time a request is made. Then, respond with content!
+    // response.send() sends an HTTP response via JSON.
+    app.use((request,response)=> {
+    console.log("Request received!")
+    response.send('<h1>This is a h1 header!</h1>')
+    })
 
-// All we need to open up a server is to start listening. :)
-// localhost:3000
-app.listen(3000, () => {
-	console.log("Listening on port 3000...")
-})
-```
+    // All we need to open up a server is to start listening. :)
+    // localhost:3000
+    app.listen(3000, () => {
+    console.log("Listening on port 3000...")
+    })
+    ```
 ## Express Routing Basics
 Routing: Taking incoming requests and paths (/dogs, /help, etc...) and match them up with code.
 Let's expand the above example a little bit.
@@ -1716,28 +1716,28 @@ const app = express()
 
 // Respond to GET requests.
 app.get('/', (request,response)=>{
-	response.send('This is the home page.')
+response.send('This is the home page.')
 })
 app.get('/cats', (request,response)=>{
-	response.send('MEOW! Cat request!')
+response.send('MEOW! Cat request!')
 })
 
 app.get('/birds', (request,response)=>{
-	response.send('WANNA TREATTREAT? CHIRP!')
+response.send('WANNA TREATTREAT? CHIRP!')
 })
 
 app.post('/birds', (request,response)=>{
-	response.send('HOOT HOOT! This is a POST request!')
+response.send('HOOT HOOT! This is a POST request!')
 })
 
 app.get('*', (request,response)=>{
-	response.send("I don't know that path.")
+response.send("I don't know that path.")
 })
 
 // All we need to open up a server is to start listening. :)
 // localhost:3000
 app.listen(3000, () => {
-	console.log("Listening on port 3000...")
+console.log("Listening on port 3000...")
 })
 ```
 
@@ -1748,8 +1748,8 @@ Add this to the middle of the above code:
 ```js
 // Define and match a pattern, like Reddit for example.
 app.get('/r/:subreddit/:postID', (request,response) => {
-	const {subreddit,postID} = request.params;
-	response.send(`<h1>Viewing Post ID: ${postID} in the ${subreddit} Subreddit.</h1>`)
+const {subreddit,postID} = request.params;
+response.send(`<h1>Viewing Post ID: ${postID} in the ${subreddit} Subreddit.</h1>`)
 })
 ```
 
@@ -1768,11 +1768,11 @@ For example, on MDN, this looks like:
 In our script, it would look something like this:
 ```js
 app.get('/search', (request,response)=> {
-	const {q} = request.query;
-	if(!q) {
-		response.send("If something is not in our records, it does not exist!")
-	}
-	response.send(`<h1>Search results for: ${q}</h1>`)
+const {q} = request.query;
+if(!q) {
+response.send("If something is not in our records, it does not exist!")
+}
+response.send(`<h1>Search results for: ${q}</h1>`)
 })
 
 ```
@@ -1831,10 +1831,10 @@ const express = require('express');
 const app = express();
 app.get('/', (request,response) => {
 // Testing...
-	response.send("HI!")
+response.send("HI!")
 // Render our home.ejs file. Any time an .ejs file sees JavaScript,
 // it will evaulate it and spit out HTML.
-	response.render('home.ejs')
+response.render('home.ejs')
 })
 
 // Set EJS parameters. Make sure your project has a directory
@@ -1851,15 +1851,15 @@ home.ejs
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-	<script src="#####"></script>
-  </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML 5 Boilerplate</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="#####"></script>
+</body>
 </html>
 ```
 
@@ -1897,10 +1897,10 @@ Add these lines to your `index.js` file:
 ```javascript
 // Add a new path. This page will display a random number from 1 to 10
 app.get('/random', (request,response) => {
-    const num = Math.floor(Math.random()*10)+1;
-    response.render('random', {rand : num});
-    // :
-    // response.render('random', {num}
+const num = Math.floor(Math.random()*10)+1;
+response.render('random', {rand : num});
+// :
+// response.render('random', {num}
 })
 ```
 
@@ -1909,14 +1909,14 @@ New file! `random.ejs`
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hello, world!</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="" />
+<title>Hello, world!</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="" />
 </head>
 
 <body>
-  <h1>Your random number is: <%= rand %></h1>
+<h1>Your random number is: <%= rand %></h1>
 </body>
 </html>
 ```
@@ -1927,15 +1927,15 @@ Subreddit Template Demo
 Add these lines to your app.js:
 ```javascript
 app.get('/r/:subreddit', (request,resolution) => {
-    const {subreddit} = request.params
-    resolve.render('subreddit', {subreddit});
+const {subreddit} = request.params
+resolve.render('subreddit', {subreddit});
 })
 ```
 
 ```html
 // subreddit.ejs
 <body>
-  <h1>Browsing the <%= subreddit %> subreddit.</h1>
+<h1>Browsing the <%= subreddit %> subreddit.</h1>
 </body>
 ```
 
@@ -1948,25 +1948,25 @@ Yes, this is exactly the thing we cautioned against two sections ago.
 Uses a new tag:
 - **<% %>**: `Scriptlet` tag, for control-flow, no output
 
-Example 1 - Simple logic using a ternary operator:
-```html
-<h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
-```
-<head>
+    Example 1 - Simple logic using a ternary operator:
+    ```html
+    <h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
+    ```
+    <head>
     <meta charset = "UTF8">
     <title>My Site</title>
-</head>
+    </head>
 
-Example 2 - Complex logic allowing for more markup and stuffs:
-```html
-// Don't forget to surround every line of embedded logic with your tag.
-<% if (num%2 === 0) { %>
-<h2>That's an even number!</h2>
-<% } else { %>
-<h2>That's an odd number!</h2>
-<% } %>
-```
-We also use these braces a lot is in LOOPING!
+    Example 2 - Complex logic allowing for more markup and stuffs:
+    ```html
+    // Don't forget to surround every line of embedded logic with your tag.
+    <% if (num%2 === 0) { %>
+    <h2>That's an even number!</h2>
+    <% } else { %>
+    <h2>That's an odd number!</h2>
+    <% } %>
+    ```
+    We also use these braces a lot is in LOOPING!
 
 ## Loops in EJS
 
@@ -1974,8 +1974,8 @@ Take some data and format each chunk using loops. :)
 ```javascript
 // app.js
 app.get('/cats', (request,response) => {
-    const cats = ['Pete', 'Callie', 'Rosebud', 'Whiskers', 'Pumpkin']
-    resolve.render('cats', {cats})
+const cats = ['Pete', 'Callie', 'Rosebud', 'Whiskers', 'Pumpkin']
+resolve.render('cats', {cats})
 })
 ```
 
@@ -1984,9 +1984,9 @@ app.get('/cats', (request,response) => {
 <h1>All the cats:</h1>
 
 <ul>
-    <% for (let cat of cats){ %>
-    <li><%= cat %></li>
-    <% } %>
+<% for (let cat of cats){ %>
+<li><%= cat %></li>
+<% } %>
 </ul>
 
 ```
@@ -1998,10 +1998,10 @@ File structure:
 ```bash
 app.js
 public
-    styles.css
+styles.css
 views
-    home.ejs
-    subreddit.ejs
+home.ejs
+subreddit.ejs
 ```
 
 ### app.js
@@ -2027,116 +2027,116 @@ app.set('view engine', 'ejs')
 
 // Home directory
 app.get('/', (request,resolve) => {
-	resolve.render('home')
+resolve.render('home')
 })
 
 // Define a pattern like Reddit and match it.
 app.get('/r/:subreddit', (request,resolve) => {
-	const { subreddit } = request.params;
-	// Drill into the subreddit info.
-	const data = redditdata[subreddit]
+const { subreddit } = request.params;
+// Drill into the subreddit info.
+const data = redditdata[subreddit]
 
-	// Pass the JSON data as an array of arguments with the rest operator.
-	resolve.render('subreddit', { ...data});
+// Pass the JSON data as an array of arguments with the rest operator.
+resolve.render('subreddit', { ...data});
 })
 
 app.listen(3000, ()=> {
-	console.log("Listening on port 3000.")
+console.log("Listening on port 3000.")
 })
 ```
 
 ### data.json
 ```json
 {
-	"soccer": {
-		"name": "Soccer",
-		"subscribers": 80000,
-		"description": "The football subreddit. News, results and discussion surrounding your favorite black and white sphere on the pitch.",
-		"posts": [
-			{
-				"title": "Marten de Roon to make pizza for more than 1,000 rabid fans. Streetgoers rejoice!",
-				"author": "joeextreme"
-			},
-			{
-				"title": "Stephan Lichtsteiner has retired from professional wrestling to join our ranks.",
-				"author": "odd person"
-			},
-			{
-				"title": "OFFICIAL: Dani Parejo signs for Villareal.",
-				"author": "joeextreme"
-			}
-		]
-	},
-	"chickens": {
-		"name": "Chickens",
-		"subscribers": 666633,
-		"description": "A place to post your chicken-related questions and media.",
-		"posts": [
-			{
-				"title": "He always tries to lie on top of the eggs, so we put ping pong balls in the egg carton.",
-				"author": "joeextreme",
-				"img": "https://i.redd.it/9pcjc67xo5ca1.jpg"
-			},
-			{
-				"title": "Is this Barred Rock a Rooster or Hen?",
-				"author": "catspajamas_550",
-				"img": "https://preview.redd.it/pij5yolfi8ca1.jpg?width=3024&format=pjpg&auto=webp&v=enabled&s=4130514482c781a4231fccbe36fcbf0311be8513"
-			},
-			{
-				"title": "Pics of my Chicken :)",
-				"author": "birdbrain90",
-				"img": "https://preview.redd.it/we5y35yqv4ca1.jpg?width=3072&format=pjpg&auto=webp&v=enabled&s=b4d00097a3d1a8a3a145c0f21bfd158652acdd33"
-			}
-		]
-	},
-	"mightyharvest": {
-		"name": "Mighty Harvest",
-		"subscribers": 9001,
-		"description": "Feeding many villages and village idiots for 10s of days.",
-		"posts": [
-			{
-				"title": "Making pumpkin soup for the entire town. Or possibly ending world hunger",
-				"author": "IndiaCee",
-				"img": "https://i.redd.it/817afo07g7ca1.jpg"
-			},
-			{
-				"title": "Behold the harvest that could feed earth twice",
-				"author": "samtheonlyone",
-				"img": "https://external-preview.redd.it/qr4Bof4NjtaBvNuJIPsTd22YUagwDZAB82j-0oO5Blk.jpg?auto=webp&v=enabled&s=c1a2163331cefac5cd3ca6240a1db15a366bf81b"
-			},
-			{
-				"title": "Enough for me and all my friends",
-				"author": "customerservice_",
-				"img": "https://i.redd.it/vkxybhdizaba1.jpg"
-			}
-		]
-	}
+"soccer": {
+"name": "Soccer",
+"subscribers": 80000,
+"description": "The football subreddit. News, results and discussion surrounding your favorite black and white sphere on the pitch.",
+"posts": [
+{
+"title": "Marten de Roon to make pizza for more than 1,000 rabid fans. Streetgoers rejoice!",
+"author": "joeextreme"
+},
+{
+"title": "Stephan Lichtsteiner has retired from professional wrestling to join our ranks.",
+"author": "odd person"
+},
+{
+"title": "OFFICIAL: Dani Parejo signs for Villareal.",
+"author": "joeextreme"
+}
+]
+},
+"chickens": {
+"name": "Chickens",
+"subscribers": 666633,
+"description": "A place to post your chicken-related questions and media.",
+"posts": [
+{
+"title": "He always tries to lie on top of the eggs, so we put ping pong balls in the egg carton.",
+"author": "joeextreme",
+"img": "https://i.redd.it/9pcjc67xo5ca1.jpg"
+},
+{
+"title": "Is this Barred Rock a Rooster or Hen?",
+"author": "catspajamas_550",
+"img": "https://preview.redd.it/pij5yolfi8ca1.jpg?width=3024&format=pjpg&auto=webp&v=enabled&s=4130514482c781a4231fccbe36fcbf0311be8513"
+},
+{
+"title": "Pics of my Chicken :)",
+"author": "birdbrain90",
+"img": "https://preview.redd.it/we5y35yqv4ca1.jpg?width=3072&format=pjpg&auto=webp&v=enabled&s=b4d00097a3d1a8a3a145c0f21bfd158652acdd33"
+}
+]
+},
+"mightyharvest": {
+"name": "Mighty Harvest",
+"subscribers": 9001,
+"description": "Feeding many villages and village idiots for 10s of days.",
+"posts": [
+{
+"title": "Making pumpkin soup for the entire town. Or possibly ending world hunger",
+"author": "IndiaCee",
+"img": "https://i.redd.it/817afo07g7ca1.jpg"
+},
+{
+"title": "Behold the harvest that could feed earth twice",
+"author": "samtheonlyone",
+"img": "https://external-preview.redd.it/qr4Bof4NjtaBvNuJIPsTd22YUagwDZAB82j-0oO5Blk.jpg?auto=webp&v=enabled&s=c1a2163331cefac5cd3ca6240a1db15a366bf81b"
+},
+{
+"title": "Enough for me and all my friends",
+"author": "customerservice_",
+"img": "https://i.redd.it/vkxybhdizaba1.jpg"
+}
+]
+}
 }
 ```
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><%= name %></title>
-	<link rel="stylesheet" href="/styles.css"
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= name %></title>
+<link rel="stylesheet" href="/styles.css"
 </head>
 <body>
-	<h1>Behold the <%= name %> subreddit!</h1>
-	<h2><%= description %></h2>
-	<p><%= subscribers %> total subscribers</p>
+<h1>Behold the <%= name %> subreddit!</h1>
+<h2><%= description %></h2>
+<p><%= subscribers %> total subscribers</p>
 
-	<hr>
+<hr>
 
-	<% for(let post of posts){ %>
-	<article>
-		<p><%= post.title %> - <b><%= post.author %></b></p>
-		<% if (post.img) { %>
-			<img src="<%= post.img%>" alt="">
-		<% } %>
-	</article>
+<% for(let post of posts){ %>
+<article>
+<p><%= post.title %> - <b><%= post.author %></b></p>
+<% if (post.img) { %>
+<img src="<%= post.img%>" alt="">
+<% } %>
+</article>
 <% } %>
 </body>
 </html>
@@ -2150,12 +2150,12 @@ Use `express.static(root, [options])` as **middleware** to serve static files on
 File structure:
 ```text
 public
-    css
-        bootstrap.min.css
-        
-    js
-        bootstrap.min.js
-        jquery.js
+css
+bootstrap.min.css
+
+js
+bootstrap.min.js
+jquery.js
 ```
 
 1. Download jquery from [ https://jquery.com/ ]( jquery.com )
@@ -2178,17 +2178,17 @@ Boo! No one likes pasting the same data twice! Here's a way to include parts of 
 
 File structure:
 ```txt
-   Partials
-    head.ejs
+Partials
+head.ejs
 ```
 ```html
 <!-- head.ejs -->
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <title><%= name %></title> -->
-	<link rel="stylesheet" href="/styles.css"
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <title><%= name %></title> -->
+<link rel="stylesheet" href="/styles.css"
 </head>
 ```
 
@@ -2212,9 +2212,9 @@ File structure:
 - **GET Request**: Used to retrieve information. Data is sent via a query string. Information is plainly visible in the URL. Limited amount of data can be sent.
 - **POST Request**: Used to post data to the server. Used to write/create/update information. Data is sent via request body, not a query string visible in the URL. Can send any sort of data. (JSON!!)
 
-POST requests are usually more versatile than GET requests because they can send so many different data types.
+    POST requests are usually more versatile than GET requests because they can send so many different data types.
 
-How do you route POST requests with Express? That's the next section.
+    How do you route POST requests with Express? That's the next section.
 
 ## Defining Express Post Routes
 Inside your app.js Express app, add the following lines:
@@ -2264,7 +2264,7 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 - Mongo Finding/Querying
 - Mongo Deletions
 
-The syntax is basically Javascript. However like any new tool we use, it's something that we have to try and understand by reading the documentation.
+    The syntax is basically Javascript. However like any new tool we use, it's something that we have to try and understand by reading the documentation.
 
 ## Introduction to Databases
 
@@ -2279,7 +2279,7 @@ The syntax is basically Javascript. However like any new tool we use, it's somet
 **SQL Databases:** Structured Query Language databases are relational databases. We pre-define a schema of tables before we insert anything.
 - Kind of like spreadsheets. You need to define a structure FIRST, then everything inside it MUST fall into that structure. We even capitalized the word MUST for extra clickbait. If you're reading this, you're part of the problem.
 
-**NoSQL Databases:** NoSQL databases do not use SQL. There are many types of these, including document, key-value, and graph stores.
+    **NoSQL Databases:** NoSQL databases do not use SQL. There are many types of these, including document, key-value, and graph stores.
 - These are newer and work in many different ways. No pre-defined schema is required.
 
 ## Why We're Learning MongoDB
@@ -2297,9 +2297,9 @@ The syntax is basically Javascript. However like any new tool we use, it's somet
 - **Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
 - **Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
 
-NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
+    NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
 
-[Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
+    [Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
 - `$set:` Change a specific key to a value.
 - `$unset:` Delete a specific key, value pair. (`{$unset: {catFriendly: ""}}`)
 
@@ -2321,20 +2321,20 @@ age: { $gt: 8 }
 - `$ne` not equal to
 - `$nin` not in
 
-LOGIC: Use to combine operators.
-- `$and, $not, $nor, $or
+    LOGIC: Use to combine operators.
+- `$and, $not, $nor, $or`
 
-#### $in: Kind of Like 'OR'
+#### $in: Kind of Like OR
 
 Find all dogs whose breed is either "Golden Retriever" or "Dachchund" AND whose age is less than 10:
 ```
 db.dogs.find({
-    breed: {
-        $in: ['Golden Retriever', 'Dachchund']
-    },
-    age: {
-        $lt: 10
-    }
+breed: {
+$in: ['Golden Retriever', 'Dachchund']
+},
+age: {
+$lt: 10
+}
 })
 ```
 
@@ -2342,16 +2342,16 @@ Find all dogs whose personality is cat friendly OR whose age is less than or equ
 
 ```
 db.dogs.find({
-		$or: [{
-		'personality.catFriendly': true
-		},
-		{
+$or: [{
+'personality.catFriendly': true
+},
+{
 age: {
 $lte: 2
 }
 }
-		]
-		})
+]
+})
 
 ```
 **Clear the mongosh Shell:** <Ctrl-l>
@@ -2374,7 +2374,7 @@ Still confused? Yeah, me too again. Refer to the video below for more info on up
 Mongoose is an Object Data Mapper
 - ODM: A software that maps documents coming from a database into useable JavaScript objects.
 
-Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
+    Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
 
 ## .load index.js Bug!
 
@@ -2404,15 +2404,15 @@ const connectionString = 'mongodb+srv://bschultz1990:krfofrgrmfrt0-60-@wdbc.rrnu
 
 ```javascript
 mongoose.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true})
-	.then(()=> {
-		console.log("Connection open!")
-	})
-	.catch(error => {
-		console.log(error)
-	})
+.then(()=> {
+console.log("Connection open!")
+})
+.catch(error => {
+console.log(error)
+})
 
 mongoose.connection.on("error", function(error) {
-	console.error(error);
+console.error(error);
 })
 ```
 
@@ -2420,7 +2420,7 @@ mongoose.connection.on("error", function(error) {
 
 ```javascript
 mongoose.connection.on("open", function () {
-		console.log("Connected to MongoDB database")
+console.log("Connected to MongoDB database")
 })
 ```
 
@@ -2448,10 +2448,10 @@ const Movie = mongoose.model('Movie', movieSchema)
 ```javascript
 // Create a new object based on the schema.
 const amadeus = new Movie({
-	title: 'Amadeus',
-	year: 1986,
-	score: 9.2,
-	rating: 'R'
+title: 'Amadeus',
+year: 1986,
+score: 9.2,
+rating: 'R'
 })
 ```
 
@@ -2476,9 +2476,9 @@ Movie.insertMany([
 { title: 'Robots', year: 2001, score: 9.2, rating: 'PG' },
 ])
 .then(data => {
-	console.log("It worked!")
-	console.log(data);
-	})
+console.log("It worked!")
+console.log(data);
+})
 ```
 ## Finding with Mongoose
 
@@ -2516,5 +2516,4 @@ Movie.find(_id: "new ObjectId("id-here")".then(data => console.log(data))
 ```
 
 ### Updating with Mongoose
-
 
