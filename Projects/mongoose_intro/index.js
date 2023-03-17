@@ -10,11 +10,6 @@ mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: 
 		console.log(error)
 	})
 
-
-mongoose.connection.on("error", function (error) {
-	console.error(error);
-})
-
 mongoose.connection.on("open", function () {
 	console.log("Connected to MongoDB database")
 })
@@ -38,6 +33,8 @@ const amadeus = new Movie({
 	rating: 'R'
 })
 
+console.log(amadeus)
+
 // Save your data to the database
 // You can call this multiple times, most often after modifying any data in the object.
 // amadeus.save()
@@ -52,5 +49,3 @@ const amadeus = new Movie({
 // 		console.log("It worked!")
 // 		console.log(data);
 // 	})
-
-

@@ -1121,14 +1121,14 @@ Making requests via JavaScript
 -   **Web APIs:** Web Application Programming Interface. Requesting JSON, not HTML pages. Exposes certain endpoints that respond with bare-bones information for software to use.
 -   **JSON:** A format for sending raw data. Superceded XML
 
-    JSON Example:
+	JSON Example:
 
-    ```json
-    {
-    "squadName": "Super Hero Squad",
-    "homeTown": "Metro City"
-    }
-    ```
+	```json
+	{
+	"squadName": "Super Hero Squad",
+	"homeTown": "Metro City"
+	}
+	```
 
 ### JSON.parse
 
@@ -1177,49 +1177,49 @@ Example: `https://duckduckgo.com/?q=fennec+fox&t=h_&ia=web`
 -   Return the JSON out of Fetch.
 -   Display the data you fetched.
 
-    ```js
-    fetch("https://swapi.dev/api/people/1/")
-    .then((resolve) => {
-    console.log("RESOLVED!", resolve);
-    return resolve.json();
-    })
-    .then((data) => {
-    console.log("JSON DONE", data);
-    })
-    .catch((error) => {
-    console.log("ERROR!", error);
-    });
-    ```
+	```js
+	fetch("https://swapi.dev/api/people/1/")
+	.then((resolve) => {
+	console.log("RESOLVED!", resolve);
+	return resolve.json();
+	})
+	.then((data) => {
+	console.log("JSON DONE", data);
+	})
+	.catch((error) => {
+	console.log("ERROR!", error);
+	});
+	```
 
-    Method 2:
+	Method 2:
 
 -   Make this into an ASYNC function.
 
-    ```js
-    const starWarsAsync = async () => {
-    const resolve = await fetch("https://swapi.dev/api/people/1/");
-    const data = await resolve.json();
-    console.log(data);
-    };
-    ```
+	```js
+	const starWarsAsync = async () => {
+	const resolve = await fetch("https://swapi.dev/api/people/1/");
+	const data = await resolve.json();
+	console.log(data);
+	};
+	```
 
-    Method 2.5:
+	Method 2.5:
 
 -   Wrap this function in a TRY/CATCH:
 
-    ```js
-    try {
-    const starWarsAsync = async () => {
-    const resolve = await fetch("https://swapi.dev/api/people/1/");
-    const data = await resolve.json();
-    console.log(data);
-    } catch (error) {
-    console.log("Error encountered.", error);
-    }
-    };
-    ```
+	```js
+	try {
+	const starWarsAsync = async () => {
+	const resolve = await fetch("https://swapi.dev/api/people/1/");
+	const data = await resolve.json();
+	console.log(data);
+	} catch (error) {
+	console.log("Error encountered.", error);
+	}
+	};
+	```
 
-    Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
+	Not a fan of parsing a separate JSON stream as part of your request ritual? Good news! AXIOS is an even _simpler_ way to make these kinds of requests as well...
 
 ## AXIOS
 
@@ -1477,7 +1477,7 @@ Let's shift from making static pages to making dynamic pages.
 - Access to Powerful OS Settings
 - Tools Like Node, Express, etc...
 
-    ---
+	---
 - **Terminal**: A text-based interface to your computer. Originally a physical object, but now we use software terminals.
 - **Shell**: The software that runs on the terminal. (bash, zsh, etc...)
 
@@ -1525,7 +1525,7 @@ What can you do with Node?
 - Native Apps (VS Code is a Node app!!)
 - Video Games, etc...
 
-    Node is everywhere...
+	Node is everywhere...
 - NASA
 - Netflix
 - VS Code
@@ -1542,16 +1542,16 @@ STUFF YOU WON'T HAVE HERE:
 - window
 - any subsequent DOM elements
 
-    So, where is your global object?
+	So, where is your global object?
 - global :grin:
 
-    STUFF YOU HAVE INSTEAD:
+	STUFF YOU HAVE INSTEAD:
 - Operating system modules for files and folders, etc...
 
-    To run a .js file from Node, type:
-    ```
-    node yourfile.js
-    ```
+	To run a .js file from Node, type:
+	```
+	node yourfile.js
+	```
 
 ### Process and Argv
 ***process*** Provides information about and control over the current Node.js process. It's always available to Node.js applications without using require().
@@ -1571,25 +1571,25 @@ Let's make a Node script that creates the following files/folders in the followi
 `node boilerplate.js [project_folder]`
 ```
 [project_folder]
-    - index.html
-    - styles.css
-    - app.js
-    ```
-    ```js
-    const fs = require('fs'); // Import the fs module
+	- index.html
+	- styles.css
+	- app.js
+	```
+	```js
+	const fs = require('fs'); // Import the fs module
 
-    // Store your own argument as a variable.
-    const folderName = process.argv[2] || 'NewFolder'
+	// Store your own argument as a variable.
+	const folderName = process.argv[2] || 'NewFolder'
 
-    // make a new folder
-    fs.mkdirSync(folderName);
-    console.log(`Created project folder: ${folderName}`);
+	// make a new folder
+	fs.mkdirSync(folderName);
+	console.log(`Created project folder: ${folderName}`);
 
-    // Make folder contents inside new folder:
-    fs.writeFileSync(`${folderName}/index.html`, '');
-    fs.writeFileSync(`${folderName}/styles.css`, '');
-    fs.writeFileSync(`${folderName}/app.js`, '');
-    ```
+	// Make folder contents inside new folder:
+	fs.writeFileSync(`${folderName}/index.html`, '');
+	fs.writeFileSync(`${folderName}/styles.css`, '');
+	fs.writeFileSync(`${folderName}/app.js`, '');
+	```
 ## Modules and NPM
 - Module.Exports
 - Requiring Modules
@@ -1671,35 +1671,35 @@ Express is a web development framework that helps servers get up and running wit
 - Figure out what the user is asking for
 - Crafts an http response and associated content
 
-    **Library:** Something that's integrated into your code at any point. You decide when and how to incorporate it into your code.
+	**Library:** Something that's integrated into your code at any point. You decide when and how to incorporate it into your code.
 
-    **Framework:** Provides the structure for an application and you follow the framework's rules.
+	**Framework:** Provides the structure for an application and you follow the framework's rules.
 
-    Navigate to the directory you'd like your project, then:
-    ```bash
-    cd Project/directory
-    npm init -y
-    npm install express
-    ```
+	Navigate to the directory you'd like your project, then:
+	```bash
+	cd Project/directory
+	npm init -y
+	npm install express
+	```
 
-    Inside your app.js:
-    ```js
-    const express = require('express');
-    const app = express()
+	Inside your app.js:
+	```js
+	const express = require('express');
+	const app = express()
 
-    // Trigger this every time a request is made. Then, respond with content!
-    // response.send() sends an HTTP response via JSON.
-    app.use((request,response)=> {
-    console.log("Request received!")
-    response.send('<h1>This is a h1 header!</h1>')
-    })
+	// Trigger this every time a request is made. Then, respond with content!
+	// response.send() sends an HTTP response via JSON.
+	app.use((request,response)=> {
+	console.log("Request received!")
+	response.send('<h1>This is a h1 header!</h1>')
+	})
 
-    // All we need to open up a server is to start listening. :)
-    // localhost:3000
-    app.listen(3000, () => {
-    console.log("Listening on port 3000...")
-    })
-    ```
+	// All we need to open up a server is to start listening. :)
+	// localhost:3000
+	app.listen(3000, () => {
+	console.log("Listening on port 3000...")
+	})
+	```
 ## Express Routing Basics
 Routing: Taking incoming requests and paths (/dogs, /help, etc...) and match them up with code.
 Let's expand the above example a little bit.
@@ -1948,25 +1948,25 @@ Yes, this is exactly the thing we cautioned against two sections ago.
 Uses a new tag:
 - **<% %>**: `Scriptlet` tag, for control-flow, no output
 
-    Example 1 - Simple logic using a ternary operator:
-    ```html
-    <h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
-    ```
-    <head>
-    <meta charset = "UTF8">
-    <title>My Site</title>
-    </head>
+	Example 1 - Simple logic using a ternary operator:
+	```html
+	<h2><%= num%2===0 ? 'This number is even!' : 'This number is odd.' %></h2>
+	```
+	<head>
+	<meta charset = "UTF8">
+	<title>My Site</title>
+	</head>
 
-    Example 2 - Complex logic allowing for more markup and stuffs:
-    ```html
-    // Don't forget to surround every line of embedded logic with your tag.
-    <% if (num%2 === 0) { %>
-    <h2>That's an even number!</h2>
-    <% } else { %>
-    <h2>That's an odd number!</h2>
-    <% } %>
-    ```
-    We also use these braces a lot is in LOOPING!
+	Example 2 - Complex logic allowing for more markup and stuffs:
+	```html
+	// Don't forget to surround every line of embedded logic with your tag.
+	<% if (num%2 === 0) { %>
+	<h2>That's an even number!</h2>
+	<% } else { %>
+	<h2>That's an odd number!</h2>
+	<% } %>
+	```
+	We also use these braces a lot is in LOOPING!
 
 ## Loops in EJS
 
@@ -2212,9 +2212,9 @@ head.ejs
 - **GET Request**: Used to retrieve information. Data is sent via a query string. Information is plainly visible in the URL. Limited amount of data can be sent.
 - **POST Request**: Used to post data to the server. Used to write/create/update information. Data is sent via request body, not a query string visible in the URL. Can send any sort of data. (JSON!!)
 
-    POST requests are usually more versatile than GET requests because they can send so many different data types.
+	POST requests are usually more versatile than GET requests because they can send so many different data types.
 
-    How do you route POST requests with Express? That's the next section.
+	How do you route POST requests with Express? That's the next section.
 
 ## Defining Express Post Routes
 Inside your app.js Express app, add the following lines:
@@ -2264,7 +2264,7 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 - Mongo Finding/Querying
 - Mongo Deletions
 
-    The syntax is basically Javascript. However like any new tool we use, it's something that we have to try and understand by reading the documentation.
+	The syntax is basically Javascript. However like any new tool we use, it's something that we have to try and understand by reading the documentation.
 
 ## Introduction to Databases
 
@@ -2279,7 +2279,7 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 **SQL Databases:** Structured Query Language databases are relational databases. We pre-define a schema of tables before we insert anything.
 - Kind of like spreadsheets. You need to define a structure FIRST, then everything inside it MUST fall into that structure. We even capitalized the word MUST for extra clickbait. If you're reading this, you're part of the problem.
 
-    **NoSQL Databases:** NoSQL databases do not use SQL. There are many types of these, including document, key-value, and graph stores.
+	**NoSQL Databases:** NoSQL databases do not use SQL. There are many types of these, including document, key-value, and graph stores.
 - These are newer and work in many different ways. No pre-defined schema is required.
 
 ## Why We're Learning MongoDB
@@ -2297,9 +2297,9 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 - **Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
 - **Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
 
-    NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
+	NOTE: If you update a `key: value` that's not in the document, one wil be created for you.
 
-    [Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
+	[Update Operators](https://www.mongodb.com/docs/manual/reference/operator/update/)
 - `$set:` Change a specific key to a value.
 - `$unset:` Delete a specific key, value pair. (`{$unset: {catFriendly: ""}}`)
 
@@ -2321,7 +2321,7 @@ age: { $gt: 8 }
 - `$ne` not equal to
 - `$nin` not in
 
-    LOGIC: Use to combine operators.
+	LOGIC: Use to combine operators.
 - `$and, $not, $nor, $or`
 
 #### $in: Kind of Like OR
@@ -2374,17 +2374,32 @@ Still confused? Yeah, me too again. Refer to the video below for more info on up
 Mongoose is an Object Data Mapper
 - ODM: A software that maps documents coming from a database into useable JavaScript objects.
 
-    Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
+	Mongoose provides ways for us to model out our application data and define a schema. It offers easy ways to validate data and build complex queries from the comfort of JS.
 
 ## .load index.js Bug!
 
 It seems like there is a potential bug occurring to people who are using the newest versions of Node.js when using the .load index.js command
-while requiring the mongoose module and executing the lecture code in the JS file. The bug when you enter the .load index.js command in the node
-shell manifests as what seems to be an infinite loop printing the const mongoose = require('mongoose'); line of code repeatedly.
+while requiring the mongoose module and executing the lecture code in the JS file. The bug 
+seems to be an infinite loop printing the const mongoose = require('mongoose'); line of code repeatedly.
 
 Instead of using .load index.js inside of the node shell, use the command:
-`node -i -e "$(< index.js)"` in the system terminal (outside of the node shell, just be sure that you first change directories into the folder containing the index.js file)
-â€” this will load the file and start the node shell with this one command instead, and then it should work. Be sure to type out the command exactly as shown above.
+
+```javascript
+node -i -e "$(< index.js)"
+``` 
+Here's what each part of the command does:
+```
+   node: This is the command to start the Node.js runtime environment.
+
+	-i: This flag tells Node.js to start the REPL in the interactive mode, which allows you to enter multiple commands and see their output in real-time.
+
+	-e: This flag allows you to execute JavaScript code from the command line.
+
+	"$(< index.js)": This part of the command reads the contents of the index.js file and passes them as input to the -e flag, which then executes the code.
+```
+Essentially, this command will start the Node.js REPL and execute the code from your index.js file in it. This can be useful for testing individual pieces of code or debugging specific issues without having to run the entire application.
+
+However, keep in mind that this command won't actually run your entire application - it will only execute the code from index.js in the REPL. If you want to run your application and see its output, you should use the node index.js command instead.
 
 ## Our First Mongoose Model
 
@@ -2425,7 +2440,6 @@ console.log("Connected to MongoDB database")
 ```
 
 ### Create a New Schema Object
-
 ```javascript
 // Create a schema object
 const movieSchema = new mongoose.Schema({
@@ -2467,8 +2481,6 @@ amadeus.save()
 
 IMPORTANT! This does NOT require you to .save() your object.
 
-
-
 ```javascript
 // insertMany returns a promise. Use .then() to wait, then confirm it worked.
 Movie.insertMany([
@@ -2481,18 +2493,21 @@ console.log(data);
 })
 ```
 ## Finding with Mongoose
+> **Side note: Loading from the Node REPL**
+> You can load your javascript file directly from the Node REPL.
+> 1. In your terminal, navigate to your Node project.
+> 2. Type `node` to launch Node.
+> 3. Type `node -i -e "$(< index.js)"` to load your file.
+>
+> Here's what each part of the command does:
+> ```
+> - `node` This is the command to start the Node.js runtime environment.
+> - `-i` This flag tells Node.js to start the REPL in the interactive mode, which allows you to enter multiple commands and see their output in real-time.
+> - `-e` This flag allows you to execute JavaScript code from the command line.
+> - `"$(< index.js)"` This part of the command reads the contents of the index.js file and passes them as input to the -e flag, which then executes the code.
+> ```
 
-
-### Side Note: Loading from the Node REPL
-
-You can load your javascript file directly from the Node REPL.
-
-1. In your terminal, navigate to your Node project.
-2. Type `node` to launch Node.
-3. Type `.load yourfile.js` to load your file.
-
-### Find
-
+## Find()
 Returns a promise as well. We have options when we wait.
 
 You can use callbacks, but you can also treat the results we get back LIKE a promise (It's a Mongoose Query). In that case, you can chain on a .then() like so:
@@ -2502,18 +2517,49 @@ Movie.find({rating: 'PG'})
 .then(data => console.log(data))
 ```
 
-### Find By ID With Mongoose
-
+## Find By ID
 These two methods do the same thing. Pick your favorite.
 
 Hint: Mine's the first one. ;)
 ```javascript
 // findById()
-Movie.findById('id-here').then(data => console.log(data))
+Movie.findById('id-here')
+.then(data => console.log(data))
 
 // Find by ID
-Movie.find(_id: "new ObjectId("id-here")".then(data => console.log(data))
+Movie.find(_id: "new ObjectId("id-here")"
+.then(data => console.log(data))
 ```
 
 ### Updating with Mongoose
+> Note: The following methods aren't resolved with the updated information. Rather, it tells us how many things were modified.
 
+## Update One
+```javascript
+Movie.updateOne({title: 'Amadeus'}, {year: 1984}).then (response => console.log(response))
+```
+
+## Update Many
+```javascript
+Movie.updateMany({title: {$in: ['Amadeus', 'Stand By Me']}}, {score: 10}).then(res => console.log (res))
+```
+
+> Note: These methods WILL tell you what they're doing. Woohoo!
+
+## Find One and Update
+```javascript
+Movie.findOneAndUpdate({title: 'Robots'}, {score: 9.9}, {new: true})
+.then (data => console.log(data))
+```
+
+## Deleting with Mongoose
+## Delete Many
+```javascript
+Movie.deleteMany({title: 'Robots'})
+.then (data => console.log(data))
+```
+
+## Find One And Delete
+```javascript
+mongoosejs.com/docs/api/model.html
+```
