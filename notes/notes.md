@@ -2558,8 +2558,10 @@ Movie.findOneAndUpdate({title: 'Robots'}, {score: 9.9}, {new: true})
 Movie.deleteMany({title: 'Robots'})
 .then (data => console.log(data))
 ```
-
 ## Find One And Delete
 ```javascript
 mongoosejs.com/docs/api/model.html
 ```
+
+## Mongoose Schema Validations
+
