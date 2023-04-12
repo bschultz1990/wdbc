@@ -2564,4 +2564,46 @@ mongoosejs.com/docs/api/model.html
 ```
 
 ## Mongoose Schema Validations
+[Mongoose Validators](https://mongoosejs.com/docs/validation.html)
+Define a Schema object with validations.
+```javascript
+let ClientSchema = new Schema({
+name: {type: String, required: true}}
+})
+```
+
+We don't want to set the runValidators flag every time we update our data.
+Instead, we can set a pre hook for findOneAndUpdate():
+```javascript
+ClientSchema.pre('findOneAndUpdate', function(next) {
+this.options.runValidators = true;
+next();
+}
+```
+
+## Custom error messages in Mongoose
+The second value in the `min` array is your error message.
+```javascript
+const breakfastSchema = new Schema({
+  eggs: {
+    type: Number,
+    min: [6, 'Too few eggs'],
+    max: 12
+  },
+  })
+
+  const Breakfast = mongoose.model('Breakfast', breakfastSchema)
+```
+
+## Custom methods in Mongoose
+We can also define our own custom methods! You can use this in many places.
+```javascript
+productSchema.methods.custommethod = function (){
+console.log("This is a custom method!")
+}
+```
+
+> Word to the wise: Don't use an arrow function when defining a custom method.
+> It will change the use of `.this` if you do.
+
 
