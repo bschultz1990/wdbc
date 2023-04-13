@@ -34,18 +34,3 @@ const amadeus = new Movie({
 })
 
 console.log(amadeus)
-
-// Save your data to the database
-// You can call this multiple times, most often after modifying any data in the object.
-// amadeus.save()
-
-// insertMany returns a promise. Use .then to wait, then confirm it worked.
-// Movie.insertMany([
-// 	{ title: 'Amelie', year: 2001, score: 8.3, rating: 'R' },
-// 	{ title: 'Robots', year: 2001, score: 9.2, rating: 'PG' },
-// 	{ title: 'Where the Red Fern Grows', year: 1974, score: 6.8, rating: 'G' },
-// ])
-// 	.then (data => {
-// 		console.log("It worked!")
-// 		console.log(data);
-// 	})

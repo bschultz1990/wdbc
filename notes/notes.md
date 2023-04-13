@@ -2290,9 +2290,12 @@ Lets you use HTTP verbs such as PUT or DELETE in places where the client doesnâ€
 
 ## Basic Mongo Commands
 
+- **Clear the Mongosh shell** `Ctrl[or Cmd]+k`
 - **Create a Collection**: `db.[collection]`
 - **Insert a Single Document**: `db.[collection].insertOne( [data_here] )` or `db.[collection].insertOne([{ObjectOne}, {ObjectTwo}...])`
 - **Show All Collections**: `show collections`
+    > Note: `show collections` will not work unless you've created at least ONE document in it.
+- **Delete a Collection**: `db.[collection].drop()` returns `true` if it worked.
 - **Show All Collection Contents**: `db.[collection].find()`
 - **Search By Attribute**: `db.[collection].find({key: value, key: optionalvalue})` and so on.
 - **Update One Document**: `db.[collection].updateOne({key: value}, {$atomic_operator: {key: value, key:value2...}})`
@@ -2378,16 +2381,18 @@ Mongoose is an Object Data Mapper
 
 ## .load index.js Bug!
 
-It seems like there is a potential bug occurring to people who are using the newest versions of Node.js when using the .load index.js command
-while requiring the mongoose module and executing the lecture code in the JS file. The bug 
-seems to be an infinite loop printing the const mongoose = require('mongoose'); line of code repeatedly.
+If you try to load your .js file like this: `.load index.js`
 
-Instead of using .load index.js inside of the node shell, use the command:
+but your terminal prints this over and over again:
+```javascript
+const mongoose = require('mongoose'); 
+```
 
+Use this command to circumvent the bug:
 ```javascript
 node -i -e "$(< index.js)"
 ``` 
-Here's what each part of the command does:
+Here's the breakdown on how it works.
 ```
    node: This is the command to start the Node.js runtime environment.
 
@@ -2479,7 +2484,7 @@ amadeus.save()
 
 ## Insert Many With Mongoose
 
-IMPORTANT! This does NOT require you to .save() your object.
+> IMPORTANT! This does NOT require you to .save() your object.
 
 ```javascript
 // insertMany returns a promise. Use .then() to wait, then confirm it worked.
@@ -2595,7 +2600,7 @@ const breakfastSchema = new Schema({
   const Breakfast = mongoose.model('Breakfast', breakfastSchema)
 ```
 
-## Custom methods in Mongoose
+## Custom instance methods in Mongoose
 We can also define our own custom methods! You can use this in many places.
 ```javascript
 productSchema.methods.custommethod = function (){
@@ -2606,4 +2611,5 @@ console.log("This is a custom method!")
 > Word to the wise: Don't use an arrow function when defining a custom method.
 > It will change the use of `.this` if you do.
 
+## 400 Adding Model Static Methods
 
