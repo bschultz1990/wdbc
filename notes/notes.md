@@ -2612,4 +2612,58 @@ console.log("This is a custom method!")
 > It will change the use of `.this` if you do.
 
 ## 400 Adding Model Static Methods
+```javascript
+// Set a method to make everything on sale. FIRE!!
+productSchema.statics.fireSale = function() {
+   return this.updateMany({}, {onSale: true, price: 0})
+
+}
+// Call that method
+Product.fireSale().then(response => console.log(response))
+```
+
+When we create a static method, we're often doing something like a fancy find, update, or removal.
+We're doing things pertaining to the entire model, not just one item.
+
+## Mongoose Virtuals
+
+This gives us a way to add properties to a schema. They don't exist in the database, but we have access to them inside Mongoose.
+
+```javascript
+// Set a schema
+const personSchema = new mongoose.Schema({
+    first: String,
+    last: String
+})
+
+personSchema.virtual('fullName').get(function() {
+    return `${this.first} ${this.second}`
+}
+
+const Person = mongoose.model('Person', personSchema)
+```
+Now, we can access this illusion. We use these if we have something we're accessing pretty commonly based off existing data.
+
+
+## Defining Mongoose Middleware
+
+Mongoose gives us the ability to run code before and after methods are called. For example, we can run something right after sometihing is saved or removed.
+
+In more complex apps, there are times where we're removing a user. We might need to remove all associated data with that user.
+
+To do this, we could add `.pre` and `.post` hooks.
+
+```javascript
+person.Schema.pre('save', async function() {
+    console.log('Saving...')
+})
+
+person.Schema.post('save', async function() {
+    console.log('Saved!')
+}
+```
+You can do a lot of things with middleware. This is but a taste of what you can do. :)
+
+## 403 Putting it All Together: Mongoose With Express
+
 
