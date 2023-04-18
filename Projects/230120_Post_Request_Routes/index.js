@@ -2,84 +2,71 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const { v4: uuid } = require('uuid');
-uuid();
 const methodOverride = require('method-override');
 
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(methodOverride('_method'))
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // ROUTING
+app.get('/', (request, response) => {
+	response.render('index');
+});
+
 app.get('/comments', (request, response) => {
-	response.render('comments/index', { comments })
-})
+	response.render('comments/index', { comments });
+});
 
 // Create a new comment
 app.get('/comments/new', (request, response) => {
-	response.render('comments/new')
-})
+	response.render('comments/new');
+});
 
-// Add a new comment.
+// Add a new comment
 app.post('/comments', (request, response) => {
-	// Make sure we show submitted data on the console.
-	const {username,comment} = request.body;
-	comments.push({username, comment, id: uuid()});
-	// Redirect the user back to the comments index.
+	// Make sure we log submitted data to the console
+	const { username, comment } = request.body;
+	comments.push({ username, comment, id: uuid() });
+	// Redirect the user back to the comments index
 	response.redirect('/comments');
-})
+});
 
 // View a comment
 app.get('/comments/:id', (request, response) => {
 	const { id } = request.params;
-	const comment = comments.find(c=> c.id ===id);
+	const comment = comments.find(c => c.id === id);
 	response.render('comments/show', { comment });
-})
-
+});
 
 // UPDATE COMMENTS:
-// Step 1: Provide backend to update comment.
+// Step 1: Provide backend to update comment
 app.patch('/comments/:id', (request, response) => {
 	const { id } = request.params;
 	const newCommentText = request.body.comment;
-	const foundComment = comments.find(c=> c.id ===id);
+	const foundComment = comments.find(c => c.id === id);
 	foundComment.comment = newCommentText;
 	response.redirect('/comments');
-})
+});
 
-// Step 2: Make a route to serve a form to update the comment.
+// Step 2: Make a route to serve a form to update the comment
 app.get('/comments/:id/edit', (request, response) => {
-	const {id} = request.params;
-	const comment = comments.find(c=> c.id ===id);
+	const { id } = request.params;
+	const comment = comments.find(c => c.id === id);
 	response.render('comments/edit', { comment });
-})
+});
 
-// Add a delete path.
+// Add a delete path
 app.delete('/comments/:id', (request, response) => {
-	const {id} = request.params;
+	const { id } = request.params;
 	comments = comments.filter(c => c.id !== id);
 	response.redirect('/comments');
-})
+});
 
-const express = require('express');
-const app = express();
-
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(methodOverride('_method'))
-app.set('views', path.join(__dirname, ''))
-app.set('view engine', 'ejs')
-
-// ROUTING
-app.get('/', (request,response)=>{
-	response.render('index')
-})
-
-app.listen (3000, ()=>{
-	console.log('Listening on Port 3000')
-})
-
+app.listen(3000, () => {
+	console.log('Listening on Port 3000');
+});
 
 // FAKE DATA
 let comments = [
@@ -102,23 +89,5 @@ let comments = [
 		id: uuid(),
 		username: 'Martian',
 		comment: 'LEMONAAAAADE!!!!!!'
-	}
-]
-
-const express = require('express');
-const app = express();
-
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-app.use(methodOverride('_method'))
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
-
-// ROUTING
-app.get('/', (request,response)=>{
-	response.render('index')
-})
-
-app.listen (3000, ()=>{
-	console.log('Listening on Port 3000')
-})
+	},
+];

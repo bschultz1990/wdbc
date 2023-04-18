@@ -2666,4 +2666,14 @@ You can do a lot of things with middleware. This is but a taste of what you can 
 
 ## 403 Putting it All Together: Mongoose With Express
 
+- Integrating Mongoose With Express
+- Defining our Model
+- Products Index
+- Product Detail Page
+- Creating products
+- Updating products
+- Deleting products
+- Filtering By Category
+
+## 404 Express and Mongoose Basic Setup
 
