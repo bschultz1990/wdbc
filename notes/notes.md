@@ -2675,5 +2675,13 @@ You can do a lot of things with middleware. This is but a taste of what you can 
 - Deleting products
 - Filtering By Category
 
-## 404 Express and Mongoose Basic Setup
+## 407 Products Index
+This will be a page showing all products in the database.
 
+```javascript
+app.get('/products', async (req, res) => {
+const products = await Product.find({})
+console.log(products)
+res.send('All products will be here.')
+}
+```
