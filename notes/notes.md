@@ -2389,7 +2389,7 @@ const mongoose = require('mongoose');
 ```
 
 Use this command to circumvent the bug:
-```javascript
+```bash
 node -i -e "$(< index.js)"
 ``` 
 Here's the breakdown on how it works.
